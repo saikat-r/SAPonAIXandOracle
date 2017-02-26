@@ -1,0 +1,45 @@
+Cluster Name:
+df -gt / | tail -n 1 | cut -c 48-55
+
+Service name:
+SID = ps -ef | grep ms.sap | grep pf | awk '{ print $(NF-1) }' | cut -c 7-9
+
+Instance name:
+INST = ps -ef | grep ms.sap | grep pf | awk '{ print $(NF-1) }' | cut -d _ -f 2
+ps -ef | grep jc.sap | grep pf | awk '{ print $(NF-1) }' | cut -d _ -f 2
+
+SAP Hostanme:
+VHOST = ps -ef | grep ms.sap | grep pf | awk '{ print $(NF) }' | cut -c 43-
+more $(ps -ef | grep jc.sap | grep pf | awk '{ print $(NF) }' | cut -c 4-) | grep ^SAPLOCALHOST
+
+SAP profile:
+SAPprofile = ps -ef | grep ms.sap | grep pf | awk '{ print $(NF) }' | cut -c 4-
+SAPprofilePF = ps -ef | grep ms.sap | grep pf | awk '{ print $(NF) }' 
+
+Find IP
+ping -c 1 lincidgx6600 | grep PING | awk '{print $2 " has IP "   $3}'
+
+SAP workprocess:
+echo "q" | /sapmnt/DGE/exe/dpmon pf=/sapmnt/DGE/profile/DGE_DVEBMGS10_lincidge1000 p
+echo "q" | dpmon $SAPprofile p
+
+Find Errors in trace files:
+find . -mtime -1 -name dev_\* > DEVfiles
+sed 's/^/grep -i err /g' DEVfiles > DEVfiles2
+mv DEVfiles2 DEVfiles
+chmod +x DEVfiles
+./DEVfiles
+
+awk '{ print $NF }' MS
+pf=/usr/sap/DGE/SYS/profile/DGE_DVEBMGS10_lincidge1000
+pf=/usr/sap/GPL/SYS/profile/GPL_SCS21_jigpl22
+
+
+awk '{ print $(NF-1) }' MS
+ms.sapDGE_DVEBMGS10
+ms.sapGPL_SCS21
+
+
+ 
+
+/home/users/in10c2/moni/moni-server-v.6.2.sh

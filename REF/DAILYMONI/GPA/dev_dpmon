@@ -1,0 +1,56 @@
+
+---------------------------------------------------
+trc file: "dev_dpmon", trc level: 1, release: "721"
+---------------------------------------------------
+sysno      70
+sid        GPA
+systemid   324 (IBM RS/6000 with AIX)
+relno      7210
+patchlevel 0
+patchno    500
+intno      20020600
+make       single threaded, Unicode, 64 bit, optimized
+profile    /sapmnt/GPA/profile/GPA_DVEBMGS70_cigpa70
+pid        24707132
+
+
+Tue Sep  6 13:59:56 2016
+kernel runs with dp version 140000(ext=121000) (@(#) DPLIB-INT-VERSION-140000-UC)
+length of sys_adm_ext is 592 bytes
+DpSysAdmExtCreate: ABAP is active
+DpSysAdmExtCreate: VMC (JAVA VM in WP) is not active
+DpIPCInit2: read dp-profile-values from sys_adm_ext
+DpShMCreate: sizeof(wp_adm)		150080	(2240)
+DpShMCreate: sizeof(tm_adm)		57644816	(28808)
+DpShMCreate: sizeof(wp_ca_adm)		128000	(64)
+DpShMCreate: sizeof(appc_ca_adm)	128000	(64)
+DpCommTableSize: max/headSize/ftSize/tableSize=2000/16/5568064/5568080
+DpShMCreate: sizeof(comm_adm)		5568080	(2768)
+DpSlockTableSize: max/headSize/ftSize/fiSize/tableSize=0/0/0/0/0
+DpShMCreate: sizeof(slock_adm)		0	(296)
+DpFileTableSize: max/headSize/ftSize/tableSize=0/0/0/0
+DpShMCreate: sizeof(file_adm)		0	(80)
+DpShMCreate: sizeof(vmc_adm)		0	(2160)
+DpShMCreate: sizeof(wall_adm)		(416064/352496/64/192)
+DpShMCreate: sizeof(gw_adm)	48
+DpShMCreate: sizeof(j2ee_adm)	3952
+DpShMCreate: SHM_DP_ADM_KEY		(addr: 7000000001aa000, size: 64405808)
+DpShMCreate: allocated sys_adm at 7000000001aa010
+DpShMCreate: allocated wp_adm_list at 7000000001ad060
+DpShMCreate: allocated wp_adm at 7000000001ad250
+DpShMCreate: allocated tm_adm_list at 7000000001d1ca0
+DpShMCreate: allocated tm_adm at 7000000001d1cf0
+DpShMCreate: allocated wp_ca_adm at 7000000038cb410
+DpShMCreate: allocated appc_ca_adm at 7000000038ea820
+DpShMCreate: allocated comm_adm at 700000003909c30
+DpShMCreate: system runs without slock table
+DpShMCreate: system runs without file table
+DpShMCreate: allocated vmc_adm_list at 700000003e59290
+DpShMCreate: system runs without vmc_adm
+DpShMCreate: allocated gw_adm at 700000003e59340
+DpShMCreate: allocated j2ee_adm at 700000003e59380
+DpShMCreate: allocated ca_info at 700000003e5a300
+DpCommAttachTable: attached comm table (header=700000003909c30/ft=700000003909c40)
+DpRqQExtAttach: attach to queue with protect_queue / slots_per_queue 0 / 5001 from sys_adm
+*** INFO  SHM 31 in POOL 10    23449 KB estimated     15589 KB real (   -7859 KB    -34 %)
+MtxInit: 30003 0 0

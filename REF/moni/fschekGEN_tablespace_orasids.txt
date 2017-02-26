@@ -1,0 +1,25 @@
+
+vi crontab.orap01
+
+#CRONTAB: with ORASID
+#Crontab for orap01
+# Edit only via /home/appusers/ora<sid>/crontab.ora<sid>
+00,15,30,45 * * * * Rcmd +i lindbp016900c4 -- sh /usr/sap/scratch/DAILYMONI/scripts/standalone/fscheckGEN.sh P01 >/dev/null 2>&1
+00,15,30,45 * * * * Rcmd +i lindbp016900c4 -- sh /usr/sap/scratch/DAILYMONI/scripts/standalone/tablespace_sql.sh P01 >/dev/null 2>&1
+
+
+chmod u+x crontab.orap01
+crontab crontab.orap7e
+crontab -l
+
+/usr/sap/scratch/DAILYMONI/scripts/standalone/fscheckGEN.sh
+/usr/sap/scratch/DAILYMONI/scripts/standalone/tablespace_sql.sh
+
+
+PGX
+PGD
+PGI
+PGH
+P7E P8E P6E
+P9E
+PRD

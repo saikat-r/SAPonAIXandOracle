@@ -1,0 +1,132 @@
+
+**** Trace file opened at 2015-05-13, 10:16:05 India Standard Time
+ RFC library: 721, Current working directory: C:\Users\in10c2\Box Sync\BOC\SIsupport\UNIXscripts\SAPscripts, Program: python
+ Hardware: PC with Windows NT 4x AMD64 Level 6 (Mod 58 Step 9), Operating_system: Windows NT 6.1, Kernel_release: 721 patchlevel 35
+ Hostname: WLGGCEOL0004C, IP address: 10.96.59.98, IP address_v6: 10.96.59.98
+
+>> RfcOpenConnection
+>> RfcOptions
+	Partner Char Size: 1
+	Client: 100
+	User: in10c2
+	Alias: 
+	Passwd: (- secret -)
+	Language: 
+	MySAPSSO2: 
+	GetSSO2: 0
+	X.509 Certificate: 
+	ExtidData: 
+	ExtidType: 
+	SysNr: 10
+	ASHost: cidge10
+	ASService: 
+	GWHost: 
+	GWService: 
+	R3Name: 
+	MSHost: 
+	MSService: 
+	Group: PUBLIC
+	ProgramID: 
+	SAPRouter: 
+	SNC Mode: 0
+	SNC QOP: 0
+	SNC Lib: 
+	SNC Myname: 
+	SNC Partnername: 
+	Codepage: 1100
+	Trace: 3
+	LogonCheck: 1
+	No Compression: false
+	Ignore Char Conv Errors: 0
+	Substitution Char: 35
+	UseRoundtripOptimization: 0
+<< RfcOptions
+
+	>> RfcConnection::openNew
+	>> RfcConnection::connect
+	>> CpicConnection::connectAsClient
+	<< CpicConnection::connectAsClient returned 0
+
+>> HEXDUMP
+Sending data for handle 45098080, convID 57790220, codepage 1100
+000000 | D9C6C3F0 F0F0F0F0 F0F0F0E3 01010008 |ÙÆÃððððððððã....|
+000010 | 03010101 01010000 01010103 00040000 |................|
+000020 | 060B0103 0106000B 04010003 00000200 |................|
+000030 | 00002301 06011100 06696E31 30633201 |..#......in10c2.|
+000040 | 11011700 0D29400A 00785FAE 128E693A |.....)@..x_®..i:|
+000050 | 0F4A0117 01140003 31303001 14011500 |.J......100.....|
+000060 | 00011505 01000101 05010007 000B3130 |..............10|
+000070 | 2E39362E 35392E39 38000700 11000145 |.96.59.98......E|
+000080 | 00110012 00033732 31001200 13000337 |......721......7|
+000090 | 32310013 0008000D 574C4747 43454F4C |21......WLGGCEOL|
+0000a0 | 30303034 43000800 0600093C 756E6B6E |0004C......<unkn|
+0000b0 | 6F776E3E 00060130 00067079 74686F6E |own>...0..python|
+0000c0 | 01300502 00000502 000B0003 37323100 |.0..........721.|
+0000d0 | 0B010200 07524643 50494E47 0102FFFF |.....RFCPING..ÿÿ|
+0000e0 | 0000FFFF 00000000 00000000 00000000 |..ÿÿ............|
+<< HEXDUMP
+
+>> HEXDUMP
+Receiving data for handle 45098080, convID 57790220, codepage unknown
+000000 | 01010008 01020105 04010002 01010103 |................|
+000010 | 00040000 060B0103 0106000B 04010002 |................|
+000020 | 00030200 00002301 06001600 08003100 |......#.......1.|
+000030 | 31003000 30001600 07001E00 31003000 |1.0.0.......1.0.|
+000040 | 2E003100 33003900 2E003200 37002E00 |..1.3.9...2.7...|
+000050 | 31003000 20002000 20000700 18001800 |1.0. . . .......|
+000060 | 31003000 2E003100 33003900 2E003200 |1.0...1.3.9...2.|
+000070 | 37002E00 31003000 18000800 1C006300 |7...1.0.......c.|
+000080 | 69006400 67006500 31003000 5F004400 |i.d.g.e.1.0._.D.|
+000090 | 47004500 5F003100 30000800 11000200 |G.E._.1.0.......|
+0000a0 | 33001100 13000800 37003200 31002000 |3.......7.2.1. .|
+0000b0 | 13001200 08003700 30003000 20001200 |......7.0.0. ...|
+0000c0 | 06001200 63006900 64006700 65003100 |....c.i.d.g.e.1.|
+0000d0 | 30005F00 44000601 30001000 53004100 |0._.D...0...S.A.|
+0000e0 | 50004C00 53005900 53005401 30015000 |P.L.S.Y.S.T.0.P.|
+0000f0 | 0C004900 4E003100 30004300 32015001 |..I.N.1.0.C.2.P.|
+000100 | 51000600 31003000 30015101 52000200 |Q...1.0.0.Q.R...|
+000110 | 45015205 00000005 00050300 00050304 |E.R.............|
+000120 | 20000400 00000004 20051200 00051201 | ....... .......|
+000130 | 30005000 53004100 50004C00 53005900 |0.P.S.A.P.L.S.Y.|
+000140 | 53005400 20002000 20002000 20002000 |S.T. . . . . . .|
+000150 | 20002000 20002000 20002000 20002000 | . . . . . . . .|
+000160 | 20002000 20002000 20002000 20002000 | . . . . . . . .|
+000170 | 20002000 20002000 20002000 20002000 | . . . . . . . .|
+000180 | 20002001 30066700 084066A0 00000000 | . .0.g..@f ....|
+000190 | 000667FF FF0000FF FF000000 00000000 |..gÿÿ..ÿÿ.......|
+<< HEXDUMP
+
+RfcConnection handle 45098080 established
+	<< RfcConnection::connect returned 0
+
+>> RfcConnection name="none"
+Handle = 45098080 ConvID = 57790220
+>> RfcControl name="cidge10_D"
+	Program Name: SAPLSYST                                
+	Codepage: 4103		Communication Codepage: 1100
+	SysID: DGE		Target: cidge10		Mandant: 100		SysNr: 10		Language: E		User: IN10C2
+	Conversation ID: 57790220		Role: C		Partner Rel: 700 721 10.139.27.10   		Partner Kernel Rel: 721 10.139.27.10   		Protocol version: 1547
+	Convert Char: true		Convert Float: true		Convert Int: true		Ignore Conv Errors: 0		Substitution Char: #
+	Exclusive: false		Get SSO2: false		Use basXML: false
+<< RfcControl
+
+>> CpicConnection
+	CPIC Handle: 0
+	Gateway Host: 		Gateway Service: 		AS Host: 		AS Service: 		Program ID: 
+	Protocol: I
+	Conversation ID: 57790220
+	Last IO Time: Wed May 13 10:16:06 2015
+
+	Data Received: 3		Status Received: 2		All Received: true
+	CPIC Waiting: false		Connected: true		Broken: false		Allocated: false		Deallocated: false		Accepted: false
+	Server Mode: false		Registered Mode: false		Just Accepted: false
+<< CpicConnection
+
+	Asynchron: false
+	Has Error: false
+<< RfcConnection
+
+	<< RfcConnection::openNew returned 0
+
+<< RfcOpenConnection returned RFC_OK
+

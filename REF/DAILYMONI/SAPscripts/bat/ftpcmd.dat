@@ -1,0 +1,8 @@
+user SImoni
+Iamroot0
+ascii
+prompt
+lcd C:\Users\in10c2\Desktop
+cd moniscripts/webpub/charts
+put bar_vmstat_CPU.html 
+bye

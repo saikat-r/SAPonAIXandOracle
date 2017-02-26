@@ -1,0 +1,8 @@
+C:\Users\in10c2\Box Sync\BOC\SIsupport\UNIXscripts\SAPscripts\RFC-SDK>ls -ltr *.SAR
+-rwxrwx---+ 1 IN10C2 Domain Users  9613826 Jan  3 16:06 RFC_60-20001503.SAR
+-rwxrwx---+ 1 IN10C2 Domain Users 32284814 Jan  3 16:11 RFC_60-20000051.SAR
+-rwxrwx---+ 1 IN10C2 Domain Users  7180207 Jan  3 21:54 NWRFC_40-20004568.SAR
+
+C:\Users\in10c2\Box Sync\BOC\SIsupport\UNIXscripts\SAPscripts\RFC-SDK>ls -ltr *.sar
+-rwxrwx---+ 1 IN10C2 Domain Users  2010367 Jan  3 15:23 librfc_620-10011367.sar
+-rwxrwx---+ 1 IN10C2 Domain Users 11583241 Jan  3 16:03 dw_utils_722-10011367.sarc

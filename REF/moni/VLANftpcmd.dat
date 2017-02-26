@@ -1,0 +1,8 @@
+user WINmoni
+Iamroot0
+ascii
+prompt
+lcd "C:\Users\in10c2\Box Sync\BOC\SIsupport\UNIXscripts\moniscripts"
+cd VLANmap
+put DCP_VLAN_Sheet.xls
+bye

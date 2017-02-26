@@ -1,0 +1,60 @@
+#!/usr/bin/bash
+# Sumit Das 2016 06 03
+# Record SAP status to Dashboard
+
+set -x
+#Define Variables
+APP=$1
+SID=$2
+SNO=$3
+debugmode=$4
+if [[ -z $debugmode ]]; then debugmode="nodebug" ; echo $debugmode ; fi
+if [ $debugmode = "debug" ]; then echo "$( basename $0 )" ; fi
+if [ $debugmode = "debug" ]; then set -x ; fi
+
+datestamp=$(date "+%Y.%m.%d-%H.%M.%S")
+datesh=$(date "+%Y.%m.%d")
+
+WorkDir=/home/users/in10c2/moni
+LogDir=/home/users/in10c2/moni/monitoringLOGS
+cd $WorkDir
+mkdir -p monitoringLOGS/$datesh
+
+DNSHOST=$APP$SID$SNO
+DNSHOST=`echo $DNSHOST | awk '{print tolower($0)}'`
+
+#DATA Collection
+SERVER_NAME=`ssh -q -o ConnectTimeout=10 -o BatchMode=yes -o StrictHostKeyChecking=no $DNSHOST uname -n`
+if [ -n "$SERVER_NAME" ] ; then SERVER_STATUS="OK." ; else SERVER_STATUS="NOT OK." ; fi
+SAP_INSTANCE=`ssh -q -o ConnectTimeout=10 -o BatchMode=yes -o StrictHostKeyChecking=no $DNSHOST ps -ef | grep se.sap | grep pf | awk '{ print $(NF-2) }' | cut -d _ -f 2`
+if [ -n "$SAP_INSTANCE" ] ; then SAP_INSTANCE_STATUS="OK." ; else SAP_INSTANCE_STATUS="NOT OK." ; fi
+
+USER_CPU=`vmstat -Iwt 1 1 | tail -1 | awk '{print $15}'`
+SYSTEM_CPU=`vmstat -Iwt 1 1 | tail -1 | awk '{print $16}'`
+IDEAL_CPU=`vmstat -Iwt 1 1 | tail -1 | awk '{print $17}'`
+
+TOTAL_MEM=`svmon -G | head -2 | tail -1 | awk '{print $2}'`
+USED_MEM=`svmon -G | head -2 | tail -1 | awk '{print $3}'`
+FREE_MEM=`svmon -G | head -2 | tail -1 | awk '{print $4}'`
+
+USED_MEM=`expr $USED_MEM '*' 100 `
+FREE_MEM=`expr $FREE_MEM '*' 100 `
+
+USED_MEM_PCT=`expr $USED_MEM / $TOTAL_MEM `
+FREE_MEM_PCT=`expr $FREE_MEM / $TOTAL_MEM `
+
+# Write to HTML files
+cp -pr webpub/tables/tbl_im_Dashboard_Prod_Demo.html tbl_im_Dashboard_Prod_Demo_$APP.$SID.$SNO.html
+sed s/IAMDATE/" $datestamp"/g tbl_im_Dashboard_Prod_Demo_$APP.$SID.$SNO.html > temptbl_Dashboard_Prod_Demo_$APP.$SID.$SNO.html
+mv temptbl_Dashboard_Prod_Demo_$APP.$SID.$SNO.html tbl_im_Dashboard_Prod_Demo_$APP.$SID.$SNO.html
+
+# Write to HTML files
+echo "<tr><td>$SID</td><td>$SERVER_NAME</td><td>$SERVER_STATUS</td><td>$SAP_INSTANCE</td><td>$SAP_INSTANCE_STATUS</td><td>$USER_CPU</td><td>$SYSTEM_CPU</td><td>$IDEAL_CPU</td><td>$USED_MEM_PCT</td><td>$FREE_MEM_PCT</td></tr>" >> tbl_im_Dashboard_Prod_Demo_$APP.$SID.$SNO.html
+echo "</table>" >> tbl_im_Dashboard_Prod_Demo_$APP.$SID.$SNO.html
+echo "</body>" >> tbl_im_Dashboard_Prod_Demo_$APP.$SID.$SNO.html
+echo "</html>" >> tbl_im_Dashboard_Prod_Demo_$APP.$SID.$SNO.html
+
+mv tbl_im_Dashboard_Prod_Demo_$APP.$SID.$SNO.html monitoringLOGS/$datesh/.
+
+
+

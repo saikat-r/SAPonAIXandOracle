@@ -1,0 +1,246 @@
+    Test for AGH Connectivity 
+    by Linde SI Basis 
+    TIME: 2015-11-20_1357 
+ 
+    Your PC name is:   WLGGCEOL000E9 
+WLGGCEOL000E9
+    And you are:       IN10C2 
+linde\in10c2
+ 
+ 
+   ********************Your PC ipconfig - ALL************************************  
+
+Windows IP Configuration
+
+   Host Name . . . . . . . . . . . . : WLGGCEOL000E9
+   Primary Dns Suffix  . . . . . . . : linde.lds.grp
+   Node Type . . . . . . . . . . . . : Hybrid
+   IP Routing Enabled. . . . . . . . : No
+   WINS Proxy Enabled. . . . . . . . : No
+   DNS Suffix Search List. . . . . . : linde.lds.grp
+                                       edc.linde.grp
+                                       lg.grp
+                                       le.grp
+                                       linde.grp
+
+Ethernet adapter Bluetooth Network Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : Bluetooth Device (Personal Area Network)
+   Physical Address. . . . . . . . . : 7C-7A-91-D6-99-1B
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+
+Wireless LAN adapter Wireless Network Connection:
+
+   Connection-specific DNS Suffix  . : Linde.lds.grp
+   Description . . . . . . . . . . . : Intel(R) Wireless-N 7260
+   Physical Address. . . . . . . . . : 7C-7A-91-D6-99-17
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+   IPv4 Address. . . . . . . . . . . : 10.81.68.86(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.254.0
+   Lease Obtained. . . . . . . . . . : Friday, November 20, 2015 10:16:20 AM
+   Lease Expires . . . . . . . . . . : Saturday, November 28, 2015 1:44:53 PM
+   Default Gateway . . . . . . . . . : 10.81.68.1
+   DHCP Server . . . . . . . . . . . : 10.81.70.6
+   DNS Servers . . . . . . . . . . . : 10.138.144.218
+                                       10.138.144.208
+                                       10.81.33.7
+   Primary WINS Server . . . . . . . : 10.138.144.203
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Ethernet adapter Local Area Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : Linde.lds.grp
+   Description . . . . . . . . . . . : Intel(R) Ethernet Connection I218-LM
+   Physical Address. . . . . . . . . : 28-D2-44-7B-C7-2F
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+
+Ethernet adapter VMware Network Adapter VMnet1:
+
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : VMware Virtual Ethernet Adapter for VMnet1
+   Physical Address. . . . . . . . . : 00-50-56-C0-00-01
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   IPv4 Address. . . . . . . . . . . : 192.168.188.1(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Ethernet adapter VMware Network Adapter VMnet8:
+
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : VMware Virtual Ethernet Adapter for VMnet8
+   Physical Address. . . . . . . . . : 00-50-56-C0-00-08
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   IPv4 Address. . . . . . . . . . . : 192.168.232.1(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Ethernet adapter VirtualBox Host-Only Network:
+
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : VirtualBox Host-Only Ethernet Adapter
+   Physical Address. . . . . . . . . : 0A-00-27-00-00-00
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   IPv4 Address. . . . . . . . . . . : 192.168.56.1(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+ 
+ 
+   ********************Your PC Routing Table**************************************  
+ 
+ 
+===========================================================================
+Interface List
+ 16...7c 7a 91 d6 99 1b ......Bluetooth Device (Personal Area Network)
+ 12...7c 7a 91 d6 99 17 ......Intel(R) Wireless-N 7260
+ 11...28 d2 44 7b c7 2f ......Intel(R) Ethernet Connection I218-LM
+ 19...00 50 56 c0 00 01 ......VMware Virtual Ethernet Adapter for VMnet1
+ 20...00 50 56 c0 00 08 ......VMware Virtual Ethernet Adapter for VMnet8
+ 21...0a 00 27 00 00 00 ......VirtualBox Host-Only Ethernet Adapter
+  1...........................Software Loopback Interface 1
+===========================================================================
+
+IPv4 Route Table
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0       10.81.68.1      10.81.68.86     25
+       10.81.68.0    255.255.254.0         On-link       10.81.68.86    281
+      10.81.68.86  255.255.255.255         On-link       10.81.68.86    281
+     10.81.69.255  255.255.255.255         On-link       10.81.68.86    281
+        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    306
+  127.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+     192.168.56.0    255.255.255.0         On-link      192.168.56.1    266
+     192.168.56.1  255.255.255.255         On-link      192.168.56.1    266
+   192.168.56.255  255.255.255.255         On-link      192.168.56.1    266
+    192.168.188.0    255.255.255.0         On-link     192.168.188.1    276
+    192.168.188.1  255.255.255.255         On-link     192.168.188.1    276
+  192.168.188.255  255.255.255.255         On-link     192.168.188.1    276
+    192.168.232.0    255.255.255.0         On-link     192.168.232.1    276
+    192.168.232.1  255.255.255.255         On-link     192.168.232.1    276
+  192.168.232.255  255.255.255.255         On-link     192.168.232.1    276
+        224.0.0.0        240.0.0.0         On-link         127.0.0.1    306
+        224.0.0.0        240.0.0.0         On-link      192.168.56.1    266
+        224.0.0.0        240.0.0.0         On-link       10.81.68.86    281
+        224.0.0.0        240.0.0.0         On-link     192.168.188.1    276
+        224.0.0.0        240.0.0.0         On-link     192.168.232.1    276
+  255.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+  255.255.255.255  255.255.255.255         On-link      192.168.56.1    266
+  255.255.255.255  255.255.255.255         On-link       10.81.68.86    281
+  255.255.255.255  255.255.255.255         On-link     192.168.188.1    276
+  255.255.255.255  255.255.255.255         On-link     192.168.232.1    276
+===========================================================================
+Persistent Routes:
+  None
+
+IPv6 Route Table
+===========================================================================
+Active Routes:
+ If Metric Network Destination      Gateway
+  1    306 ::1/128                  On-link
+  1    306 ff00::/8                 On-link
+===========================================================================
+Persistent Routes:
+  None
+ 
+ 
+   ********************Your PC Netstat******************************************* 
+  
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State
+  TCP    10.81.68.86:50973      10.138.160.5:8080      ESTABLISHED
+  TCP    10.81.68.86:51020      10.139.130.40:1352     ESTABLISHED
+  TCP    10.81.68.86:51094      10.138.160.5:8080      ESTABLISHED
+  TCP    10.81.68.86:51095      10.138.160.5:8080      ESTABLISHED
+  TCP    10.81.68.86:51412      10.81.70.34:445        ESTABLISHED
+  TCP    10.81.68.86:55701      10.138.160.5:8080      CLOSE_WAIT
+  TCP    10.81.68.86:55722      10.138.160.5:8080      ESTABLISHED
+  TCP    10.81.68.86:55723      10.138.160.5:8080      CLOSE_WAIT
+  TCP    10.81.68.86:55724      10.138.160.5:8080      CLOSE_WAIT
+  TCP    10.81.68.86:55751      10.138.160.5:8080      CLOSE_WAIT
+  TCP    10.81.68.86:55774      10.81.68.239:2869      TIME_WAIT
+  TCP    10.81.68.86:55775      10.81.68.123:2869      TIME_WAIT
+  TCP    10.81.68.86:55776      10.138.160.5:8080      ESTABLISHED
+  TCP    10.81.68.86:55778      10.81.68.239:2869      TIME_WAIT
+  TCP    10.81.68.86:55779      10.81.68.123:2869      TIME_WAIT
+  TCP    10.81.68.86:55780      10.81.68.239:2869      TIME_WAIT
+  TCP    10.81.68.86:55781      10.81.68.123:2869      TIME_WAIT
+  TCP    10.81.68.86:55782      10.81.68.239:2869      TIME_WAIT
+  TCP    10.81.68.86:55783      10.81.68.123:2869      TIME_WAIT
+  TCP    10.81.68.86:55784      10.141.64.98:22        ESTABLISHED
+  TCP    10.81.68.86:55786      10.81.68.239:2869      TIME_WAIT
+  TCP    10.81.68.86:55787      10.81.68.123:2869      TIME_WAIT
+  TCP    10.81.68.86:55788      10.141.64.50:22        TIME_WAIT
+  TCP    10.81.68.86:55789      10.81.68.239:2869      TIME_WAIT
+  TCP    10.81.68.86:55790      10.81.68.123:2869      TIME_WAIT
+  TCP    10.81.68.86:55791      10.139.150.30:80       ESTABLISHED
+  TCP    10.81.68.86:55792      10.138.160.5:8080      ESTABLISHED
+  TCP    10.81.68.86:55793      10.81.68.239:2869      TIME_WAIT
+  TCP    10.81.68.86:55794      10.81.68.123:2869      TIME_WAIT
+  TCP    10.81.68.86:55795      10.139.130.40:1352     TIME_WAIT
+  TCP    10.81.68.86:55796      10.139.130.40:1352     TIME_WAIT
+  TCP    10.81.68.86:55798      10.81.68.239:2869      TIME_WAIT
+  TCP    10.81.68.86:55799      10.81.68.123:2869      TIME_WAIT
+  TCP    10.81.68.86:55800      10.139.11.59:22        ESTABLISHED
+  TCP    10.81.68.86:55801      10.81.68.239:2869      TIME_WAIT
+  TCP    10.81.68.86:55802      10.81.68.123:2869      TIME_WAIT
+  TCP    10.81.68.86:55803      10.81.68.239:2869      TIME_WAIT
+  TCP    10.81.68.86:55804      10.81.68.123:2869      TIME_WAIT
+  TCP    10.81.68.86:55805      10.141.240.12:443      CLOSE_WAIT
+  TCP    10.81.68.86:55806      10.81.68.239:2869      TIME_WAIT
+  TCP    10.81.68.86:55807      10.81.68.123:2869      TIME_WAIT
+  TCP    10.81.68.86:55808      10.81.68.239:2869      TIME_WAIT
+  TCP    10.81.68.86:55809      10.81.68.123:2869      TIME_WAIT
+  TCP    10.81.68.86:63141      10.230.72.70:5060      ESTABLISHED
+  TCP    10.81.68.86:63142      10.230.72.75:5060      ESTABLISHED
+  TCP    10.81.68.86:63143      10.138.132.5:1533      ESTABLISHED
+  TCP    10.81.68.86:63172      10.139.130.40:1352     ESTABLISHED
+  TCP    10.81.68.86:63749      10.139.100.191:3389    ESTABLISHED
+  TCP    10.81.68.86:63760      162.118.206.200:60025  ESTABLISHED
+  TCP    10.81.68.86:63868      10.141.64.27:22        ESTABLISHED
+  TCP    10.81.68.86:63929      10.141.64.100:3258     ESTABLISHED
+  TCP    10.81.68.86:64130      10.81.70.34:58688      ESTABLISHED
+  TCP    10.81.68.86:64270      161.100.4.26:61195     ESTABLISHED
+  TCP    10.81.68.86:64296      10.138.160.5:8080      CLOSE_WAIT
+  TCP    10.81.68.86:64315      10.138.160.5:8080      CLOSE_WAIT
+  TCP    10.81.68.86:64317      10.138.160.5:8080      CLOSE_WAIT
+  TCP    10.81.68.86:64321      10.138.160.5:8080      CLOSE_WAIT
+  TCP    10.81.68.86:64447      10.81.70.32:10123      ESTABLISHED
+  TCP    10.81.68.86:65067      10.81.70.34:58688      ESTABLISHED
+  TCP    127.0.0.1:50001        127.0.0.1:64432        ESTABLISHED
+  TCP    127.0.0.1:50006        127.0.0.1:64433        ESTABLISHED
+  TCP    127.0.0.1:50008        127.0.0.1:64431        ESTABLISHED
+  TCP    127.0.0.1:50009        127.0.0.1:64430        ESTABLISHED
+  TCP    127.0.0.1:64310        127.0.0.1:64311        ESTABLISHED
+  TCP    127.0.0.1:64311        127.0.0.1:64310        ESTABLISHED
+  TCP    127.0.0.1:64421        127.0.0.1:64422        ESTABLISHED
+  TCP    127.0.0.1:64422        127.0.0.1:64421        ESTABLISHED
+  TCP    127.0.0.1:64430        127.0.0.1:50009        ESTABLISHED
+  TCP    127.0.0.1:64431        127.0.0.1:50008        ESTABLISHED
+  TCP    127.0.0.1:64432        127.0.0.1:50001        ESTABLISHED
+  TCP    127.0.0.1:64433        127.0.0.1:50006        ESTABLISHED
+  TCP    [::1]:64513            [::1]:64515            ESTABLISHED
+  TCP    [::1]:64515            [::1]:64513            ESTABLISHED
+ 
+   ********************Testing connection to internet...************************* 
+ 
+
+Pinging google.com [173.194.44.8] with 32 bytes of data:
+Request timed out.
+
+Ping statistics for 173.194.44.8:
+    Packets: Sent = 1, Received = 0, Lost = 1 (100% loss),

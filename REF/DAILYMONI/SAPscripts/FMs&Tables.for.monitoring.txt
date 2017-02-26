@@ -1,0 +1,5 @@
+http://scn.sap.com/people/andreas.vogel/blog/2007/03/16/how-to-read-st03n-datasets-from-db
+
+FM		SWNC_COLLECTOR_GET_AGGREGATES
+		SAPWL_WORKLOAD_GET_SUMMARY 	(old)
+TABLE		SWNCMONI 
