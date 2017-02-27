@@ -1,0 +1,144 @@
+
+**** ERROR file opened at 20170103 160932 India Standard Time, SAP-REL 640,0,395 RFC-VER 3 1299110 MT-SL
+T:14584 Error in program 'rfcping': ======> Connect to message server failed
+Connect_PM  MSHOST=lincidgh1200, R3NAME=DGH, GROUP=PUBLIC
+
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       service 'sapmsDGH' unknown
+TIME        Tue Jan 03 16:09:32 201
+RELEASE     640
+COMPONENT   NI (network interface)
+VERSION     37
+RC          -3
+MODULE      ninti.c
+LINE        508
+DETAIL      NiPGetServByName2: service 'sapmsDGH' not found
+SYSTEM CALL getservbyname_r
+COUNTER     1
+
+T:14584 Error in program 'rfcping': ======> 
+
+>>> RfcOpenEx ...
+ Got following connect_param string: 
+   R3NAME=DGH MSHOST=lincidgh1200 LCHECK=0 CLIENT=000 USER=SAPCPIC PASSWD=******* LANG=EN 
+<<< RfcOpenEx failed
+
+
+
+**** ERROR file opened at 20170103 161008 India Standard Time, SAP-REL 640,0,395 RFC-VER 3 1299110 MT-SL
+T:16200 Error in program 'rfcping': ======> Connect to message server failed
+Connect_PM  MSHOST=lincidgh1200, R3NAME=DGH, GROUP=PUBLIC
+
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       service 'sapmsDGH' unknown
+TIME        Tue Jan 03 16:10:08 201
+RELEASE     640
+COMPONENT   NI (network interface)
+VERSION     37
+RC          -3
+MODULE      ninti.c
+LINE        508
+DETAIL      NiPGetServByName2: service 'sapmsDGH' not found
+SYSTEM CALL getservbyname_r
+COUNTER     1
+
+T:16200 Error in program 'rfcping': ======> 
+
+>>> RfcOpenEx ...
+ Got following connect_param string: 
+   R3NAME=DGH MSHOST=lincidgh1200 SYSNR=12 LCHECK=0 CLIENT=000 USER=SAPCPIC PASSWD=******* LANG=EN 
+<<< RfcOpenEx failed
+
+
+
+**** ERROR file opened at 20170103 162011 India Standard Time, SAP-REL 640,0,395 RFC-VER 3 1299110 MT-SL
+T:14780 Error in program 'rfcping': ======> Open file 'saprfc.ini' failed: 'No such file or directory'
+T:14780 Error in program 'rfcping': ======> 
+
+>>> RfcOpenEx ...
+ Got following connect_param string: 
+   DEST=GPUCLNT300 LCHECK=0 CLIENT=000 USER=SAPCPIC PASSWD=******* LANG=EN 
+<<< RfcOpenEx failed
+
+
+
+**** ERROR file opened at 20170103 162036 India Standard Time, SAP-REL 640,0,395 RFC-VER 3 1299110 MT-SL
+T:3280 Error in program 'rfcping': ======> Destination 'GPUCLNT300' not found in 'saprfc.ini'
+T:3280 Error in program 'rfcping': ======> 
+
+>>> RfcOpenEx ...
+ Got following connect_param string: 
+   DEST=GPUCLNT300 LCHECK=0 CLIENT=000 USER=SAPCPIC PASSWD=******* LANG=EN 
+<<< RfcOpenEx failed
+
+
+
+**** ERROR file opened at 20170103 162117 India Standard Time, SAP-REL 640,0,395 RFC-VER 3 1299110 MT-SL
+T:12092 Error in program 'rfcping': ======> Destination 'DGH' not found in 'saprfc.ini'
+T:12092 Error in program 'rfcping': ======> 
+
+>>> RfcOpenEx ...
+ Got following connect_param string: 
+   DEST=DGH LCHECK=0 CLIENT=000 USER=SAPCPIC PASSWD=******* LANG=EN 
+<<< RfcOpenEx failed
+
+
+
+**** ERROR file opened at 20170103 163125 India Standard Time, SAP-REL 640,0,395 RFC-VER 3 1299110 MT-SL
+T:16620 Error in program 'rfcping': ======> Destination 'DGE' not found in 'saprfc.ini'
+T:16620 Error in program 'rfcping': ======> 
+
+>>> RfcOpenEx ...
+ Got following connect_param string: 
+   DEST=DGE LCHECK=0 CLIENT=000 USER=SAPCPIC PASSWD=******* LANG=EN 
+<<< RfcOpenEx failed
+
+
+
+**** ERROR file opened at 20170103 163205 India Standard Time, SAP-REL 640,0,395 RFC-VER 3 1299110 MT-SL
+T:17204 Error in program 'rfcping': ======> Destination 'DGE' not found in 'saprfc.ini'
+T:17204 Error in program 'rfcping': ======> 
+
+>>> RfcOpenEx ...
+ Got following connect_param string: 
+   DEST=DGE CLIENT=009 USER=in10c2 PASSWD=******* LCHECK=0 LANG=EN 
+<<< RfcOpenEx failed
+
+
+
+**** ERROR file opened at 20170103 163357 India Standard Time, SAP-REL 640,0,395 RFC-VER 3 1299110 MT-SL
+T:15628 Error in program 'rfcping': ======> Destination 'DGE' not found in 'saprfc.ini'
+T:15628 Error in program 'rfcping': ======> 
+
+>>> RfcOpenEx ...
+ Got following connect_param string: 
+   TYPE=3 DEST=DGE GWHOST=lincidge1000 GWSERV=3310 LCHECK=0 CLIENT=000 USER=SAPCPIC PASSWD=******* LANG=EN 
+<<< RfcOpenEx failed
+
+
+
+**** ERROR file opened at 20170103 170649 India Standard Time, SAP-REL 640,0,395 RFC-VER 3 1299110 MT-SL
+T:15792 Error in program 'rfcping': ======> SAP_CMINIT3 : rc=20 > Connect to SAP gateway failed
+Connect_PM  GWHOST=lincipge5900, GWSERV=sapgw59, SYSNR=59
+
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       hostname 'lincipge5900' unknown
+TIME        Tue Jan 03 17:06:49 201
+RELEASE     640
+COMPONENT   NI (network interface)
+VERSION     37
+RC          -2
+MODULE      ninti.c
+LINE        337
+DETAIL      NiPGetHostByName2: hostname 'lincipge5900' not found
+SYSTEM CALL gethostbyname_r
+COUNTER     1
+
+T:15792 Error in program 'rfcping': ======> 
+
+>>> RfcOpenEx ...
+ Got following connect_param string: 
+   ASHOST=lincipge5900 SYSNR=59 LCHECK=0 CLIENT=000 USER=SAPCPIC PASSWD=******* LANG=EN 
+<<< RfcOpenEx failed
+
+

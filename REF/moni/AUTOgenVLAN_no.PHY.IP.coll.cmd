@@ -51,13 +51,13 @@ echo.
 set "dummy="
 set /p DUMMY=Hit ENTER to START...
 if defined dummy (echo Hit ENTER to Start !) else (echo ENTER was pressed)
-wscript "Physical.IP.vbs"
-echo.
-echo.
-echo         Making All DCP Physical Host Files List
-echo.
-echo.
-call "makeDCP.PHY.HOST.file.AUTO.cmd"
+REM wscript "Physical.IP.vbs"
+REM echo.
+REM echo.
+REM echo         Making All DCP Physical Host Files List
+REM echo.
+REM echo.
+REM call "makeDCP.PHY.HOST.file.AUTO.cmd"
 echo.
 echo.
 echo         Completed All DCP Physical Host Files List

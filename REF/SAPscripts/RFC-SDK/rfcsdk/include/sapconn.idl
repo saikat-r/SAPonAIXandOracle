@@ -1,0 +1,406 @@
+/* @(#) $Id: //bas/640_REL/src/include/sapconn.idl#1 $ SAP*/
+// sapconn.idl : IDL source for ISAPConnector
+//
+/*
+ * @doc
+ *
+ */
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+/*
+ *	@interface ISAPConnector | 
+ *	This interface is a derived interface of IDispatch. It is designed as a standard base interface for the dual interfaces on a 
+ *  DCOM Component Connector object. In addition to inheriting all the IDispatch methods, this interface contains a set of standard
+ *  methods that allow the COM client to establish the connection to a R3 system and, if it is desired, to make use of the features of
+ *  ABAP-Debugging and SAPGui. 
+ *  The template class <t CSapConnector> provide the implementation of this interface. However, this interface should never be exposed
+ *  as a seperated interface. If you use <i ISAPConnector> as the base interface of your dual interface and derive your object from 
+ *  <C CSapConnector>, you get the implemetation of the <i ISAPConnector> portion automatically.   
+ *
+ *	@prop BSTR		         | Destination		| The parameter that specifies the destination R3 system. 
+ *	@prop BSTR		         | UserID		    | The R3 user account 
+ *	@prop BSTR		         | Password			| The password for the R3 user specified by UserID
+ *	@prop BSTR               | Language		    | The language the R3 system should use
+ *	@prop BSTR		         | Client   		| The parameter that identifies the R3 client. 
+ *	@meth HRESULT			 | PutSessionInfo	| Set the above properties through this single method call
+ *	@meth HRESULT			 | AdviseRfcGuiSink | Pass a RfcGuiSink callback object to the Object,so that the object can 
+ *                                                call RfcGuiSink's method to start SAPGui.
+ *	@meth HRESULT			 | CommitWork       | Calls COMMIT WORK in the ABAP environment and SetComplete in MTS
+ *	@meth HRESULT			 | GetConnectionAttribute       | Get the attribute of the current R/3 connection.
+ *	@prop BOOL		         | KeepSAPContext	| Specifies if the R/3 connection should be keeped after each 
+ *												  R/3 method call. The default value is TRUE. This property should be set only before any
+ *                                                R/3 method call. 
+ *	@meth HRESULT			 | CommitWorkAndWait			| Calls COMMIT WORK AND WAIT in the ABAP environment.
+ *	@meth HRESULT			 | RollbackWork     | Calls ROLLBACK WORK in the ABAP environment
+ 
+ */
+
+	[
+		object,
+		uuid(B933F810-DC5C-11d2-B80B-00A0C9308BE6),
+		dual,
+		helpstring("ISAPConnector Interface"),
+		pointer_default(unique)
+	]
+	interface ISAPConnector: IDispatch
+	{
+
+		[propget, id(1000), helpstring("property Destination")] HRESULT Destination([out, retval] BSTR *pVal);
+	    [propput, id(1000), helpstring("property Destination")] HRESULT Destination([in] BSTR newVal);
+		[propget, id(1001), helpstring("property UserID")] HRESULT UserID([out, retval] BSTR *pVal);
+	    [propput, id(1001), helpstring("property UserID")] HRESULT UserID([in] BSTR newVal);
+	    [propput, id(1002), helpstring("property Password")] HRESULT Password([in] BSTR newVal);
+		[propget, id(1003), helpstring("property Language")] HRESULT Language([out, retval] BSTR *pVal);
+	    [propput, id(1003), helpstring("property Language")] HRESULT Language([in] BSTR newVal);
+		[propget, id(1004), helpstring("property Client")] HRESULT Client([out, retval] BSTR *pVal);
+	    [propput, id(1004), helpstring("property Client")] HRESULT Client([in] BSTR newVal);
+
+/*
+ *	@method  HRESULT | ISAPConnector | PutSessionInfo | The client calls this method to set the connection properties through a single 
+ *                                                      method call.
+ *	@rvalue	S_OK		  | Operation succeeded.
+ *	@rvalue	S_FALSE		  | Operation failed.
+ */
+		[		  id(1005), helpstring("method PutSessionInfo")] 
+		HRESULT PutSessionInfo
+		        (
+					[in,optional] BSTR Destination,   // @parm IN The destination parameter specifying the R3 system for the object to connect to.
+					[in,optional] BSTR UserID,        // @parm IN The R3 user account in the R3 system specified by Destination.
+					[in,optional] BSTR Password,      // @parm IN The password for the R3 user specified by UserID.
+					[in,optional] BSTR Language,      // @parm IN The language the R3 system should use.
+					[in,optional] BSTR Client         // @parm IN The parameter that identifies the R3 client. 
+				);
+
+/*
+ *	@method  HRESULT | ISAPConnector | AdviseRfcGuiSink | The client calls this method to pass a RfcGuiSink callback object to 
+ *                                                        the Object,so that the object can call RfcGuiSink's method to start SAPGui.
+ *	@rvalue	S_OK		  | Operation succeeded.
+ *	@rvalue	S_FALSE		  | Operation failed.
+ */
+		[		  id(1006), helpstring("method AdviseRfcGuiSink")] 
+		HRESULT AdviseRfcGuiSink
+				(
+					[in] IDispatch * pIRfcGuiSink, // @parm IN The callback object of type RfcGuiSink.
+					[in] short AbapDebug,	       // @parm IN A non-null value allows the object to start SAPGui for ABAP debugging.
+					[in] short UseSapGui           // @parm IN A non-null value allows the object to start SAPGui whenever the remote programm needs it.
+				);
+/*  @comm The RfcGuiSink object is implemented in LIBRFC32.DLL. If you want to make use of the SAPGui features, please make sure that
+ *  this DLL is installed on the client machine.   
+ *  @ex  In the following VB exsample, the client program first sets the properties required by the object to connect to the
+ *  R3 system and then create a RfcGuiSink callback object. This callback object is passed to the object by calling AdviseRfcGuiSink
+ *  method.|
+ *  
+ *  Dim TestObj as Object
+ *  Dim Sink As Object
+ *  Set TestObj = New Test
+ *  Set Sink = New RfcGuiSink
+ *  TestObj.UserID = "TestUser"
+ *  TestObj.Password = "Secret"
+ *  TestObj.Language = "D"
+ *  TestObj.Destination = "TestDestination"
+ *  TestObj.AdviseRfcGuiSink Sink, 1, 0
+ *  TestObj.SomeFunction ...
+ */
+
+/*
+ *	@method  HRESULT | ISAPConnector | CommitWork | Calls COMMIT WORK in the ABAP environment and SetComplete in MTS
+ *
+ *	@rvalue	S_OK | Operation succeeded.
+ */
+		[		  id(1007), helpstring("method CommitWork")] 
+		HRESULT CommitWork ();
+/*  @comm BAPIs doing updates must be completed by a separate COMMIT WORK step, such that the
+ *  R/3 update task get's started. This method must be used to do that within DCOM Connector 
+ *  classes. This function also set's the MTS transaction into a enabled state and releases
+ *  the R/3 connection back into the pool.  
+ *  @ex An example using Visual Basic. |
+ *  
+ *  Dim businessObject As New .... 
+ *  Dim Connector As Object
+ * 
+ *  'do some changes in R/3
+ *  businessObject.CallSomeBapi ....
+ *
+ *  'commit the transaction
+ *  businessObject.CommitWork
+ */
+/* 	@meth HRESULT	| ISAPConnector | GetConnectionAttribute| Get the attribute of the current R/3 connection
+ */
+		[id(1008), helpstring("Get the attributes of the connection to R/3")]
+		HRESULT GetConnectionAttribute([in,optional]BSTR AttrName,[out,retval] VARIANT *pAttrValue); //@ Get the named attribute of the current R/3 connection. If no name is given, a recordset contains all attributes will be returned.
+
+		[propget, id(1009), helpstring("property KeepSAPContext")] HRESULT KeepSAPContext([out,retval] VARIANT_BOOL *pVal);
+	    [propput, id(1009), helpstring("property KeepSAPContext")] HRESULT KeepSAPContext([in] VARIANT_BOOL newVal);
+		[id(1010), helpstring("method CommitWorkAndWait")] HRESULT CommitWorkAndWait();
+		[id(1011), helpstring("method RollbackWork")] HRESULT RollbackWork();
+
+	};
+
+/*
+ *	@interface ISAPSession | 
+ *	This interface is implemented by a session component and used by a base client to compose
+ *  the work of one or more DCOM Connector bussiness objects into a R/3 session. All DCOM 
+ *  Connector objects created within the session share a single connection to the target R/3
+ *  system and only in-process object can be created within a sesion. 
+ *  
+ *	It is recommended that the session component and the related DCOM Connector bussiness objects are
+ *  installed in the same MTS pakageand. You can implement your own session component by simply
+ *  aggeregating the RfcSession component implemented in LIBRFC32.DLL. 
+ *
+ *	@meth HRESULT			 | Logon		    | Establish the connection to the R/3 system.
+ *	@meth HRESULT			 | CreateInstance	| Create a DCOM Connector object within the session
+ */
+	[
+		object,
+		uuid(B933F811-DC5C-11d2-B80B-00A0C9308BE6),
+		dual,
+		helpstring("ISAPSession Interface"),
+		pointer_default(unique)
+	]
+	interface ISAPSession : ISAPConnector
+	{
+		[id(1), helpstring("Connect to R/3 system")] 
+				HRESULT Logon(	[out,optional] BSTR *pErrInfo, //@parm OUT Contains error infomation if the call failed.
+								[out,retval] VARIANT_BOOL *pSuccess); //@parm OUT Indicates if the call succeeded.
+		[id(2), helpstring("Create an object within the session")]
+				HRESULT CreateInstance([in] BSTR ProgID,	// @parm IN Class Id or the Programm Id of the object to instantiate.
+									[in,optional] BSTR InterfID, //@parm IN,OPTIONAL Interface Id of the interface on the object.
+									[out,retval] IDispatch ** pObject); //@parm OUT A reference of the new object .
+	}
+
+// @ex The following example shows how to write a session object by aggeregating the RfcSession component.| 
+//
+// import "oaidl.idl";
+// import "ocidl.idl";
+// import "sapconn.idl";  //add this
+//	....
+//	[
+//		uuid(80EC8531-576A-11d2-B7CD-00A0C9308BE6),
+//		helpstring("CCSession Class")
+//	]
+//	coclass CCSession
+//	{
+//		[default] interface IRfcSession;
+//	};
+// 
+// class ATL_NO_VTABLE CCCSession : 
+//		public CComObjectRootEx<CComSingleThreadModel>,
+//		public CComCoClass<CCCSession, &CLSID_CCSession>,
+//		public IUnknown
+// {
+//	public:
+//	CCCSession()
+//	{
+//		m_pUnkRfcSession = NULL;
+//	}
+//	DECLARE_REGISTRY_RESOURCEID(IDR_CCSESSION)
+//	DECLARE_GET_CONTROLLING_UNKNOWN()
+//
+//	BEGIN_COM_MAP(CCCSession)
+//		COM_INTERFACE_ENTRY(IUnknown)
+//		COM_INTERFACE_ENTRY_AUTOAGGREGATE_BLIND(m_pUnkRfcSession.p, CLSID_RfcSession)
+//	END_COM_MAP()
+//
+//	void FinalRelease()
+//	{
+//		m_pUnkRfcSession.Release();
+//	}
+//	public:
+//	CComPtr<IUnknown> m_pUnkRfcSession;
+// };
+//
+//
+// Typically, the base client use the session component in the following way:
+//	dim session
+//	dim object1
+//	dim object2
+//	set session = CreateObject("SAP.CCSession.1")
+//	session.PutSessionInfo...
+//	session.Logon
+//	set objetc1 = session.CraeteInstance("SAP.Object1.1")
+//	set object2 = session.CreateInstance("SAP.Object2.1")
+//	call object1.DoSomething()
+//	call object2.DoSomethingToo()
+//	session.CommitWork
+
+    [
+		object,
+		uuid(7be0d2e2-e620-11d1-889f-080009e82b31),
+		dual,
+		helpstring("general Schema interface for Business Objects"),
+		pointer_default(unique)
+	]
+	interface ISAPCatalog : IDispatch
+	{
+	    [id(1), helpstring("get available schemas")] HRESULT GetSchemata( [out,retval] IDispatch ** ppTab);
+	    [id(2), helpstring("get classes")] HRESULT GetClasses( [in, optional] BSTR schemaName, [out,retval] IDispatch ** ppTab);
+	    [id(3), helpstring("get methods")] HRESULT GetMethods( [in, optional] BSTR schemaName, [in, optional] BSTR className, [out,retval] IDispatch ** ppTab);
+	    [id(4), helpstring("get properties")] HRESULT GetProperties( [in ,optional] BSTR schemaName, [in,optional] BSTR className, [out,retval] IDispatch ** ppTab);
+	    [id(5), helpstring("get types (records)")] HRESULT GetTypes( [in,optional] BSTR schemaName, [in,optional] BSTR className, [out,retval] IDispatch ** ppTab);
+	    [id(6), helpstring("get parameter")] HRESULT GetMethodParameters( [in ,optional] BSTR schemaName, [in ,optional] BSTR className, [in ,optional] BSTR methodName,[out,retval] IDispatch ** ppTab);
+	    [id(7), helpstring("get columns")] HRESULT GetTypeColumns( [in,optional] BSTR schemaName, [in, optional] BSTR className, [in,optional] BSTR typeName,[out,retval] IDispatch ** ppTab);
+	};
+#ifdef SAPwithUNICODE
+
+	[
+		object,
+		uuid(5955C2F1-0013-11d4-B6D1-00609419505A),
+		local,
+		helpstring("ISAPCatalog4CU Interface"),
+		pointer_default(unique)
+	]
+	interface ISAPCatalog4CU : IUnknown
+	{
+		[helpstring("Init")] HRESULT CreateFromData(
+										[in, string] const OLECHAR* wcsSchemaName,
+										[in] unsigned long lObjLen,
+  										[in, size_is(lObjLen)]byte* pScObj,
+										[in] unsigned long lVerbLen,
+  										[in, size_is(lVerbLen)]byte* pScVerb);
+		[helpstring("Init Type")] HRESULT InitializeType(
+										[in, string] const OLECHAR * typeName,
+										[in, string] const OLECHAR * typeAbapName,
+										[in, string] const OLECHAR * typeDescription,
+										[in] unsigned long lTypeEntryLen,
+  										[in] byte* pTypeEntries,
+										[in] unsigned long lEntries);
+
+		[helpstring("get available schemas")] HRESULT GetSchemata( [out,retval] IDispatch ** ppTab);
+	    [helpstring("get classes")] HRESULT GetClasses( [in] BSTR schemaName, [out,retval] IDispatch ** ppTab);
+	    [helpstring("get methods")] HRESULT GetMethods( [in] BSTR schemaName, [in] BSTR className, [out,retval] IDispatch ** ppTab);
+	    [helpstring("get properties")] HRESULT GetProperties( [in] BSTR schemaName, [in] BSTR className, [out,retval] IDispatch ** ppTab);
+	    [helpstring("get types (records)")] HRESULT GetTypes( [in] BSTR schemaName, [in] BSTR className, [out,retval] IDispatch ** ppTab);
+	    [helpstring("get parameter")] HRESULT GetMethodParameters( [in] BSTR schemaName, [in] BSTR className, [in] BSTR methodName,[out,retval] IDispatch ** ppTab);
+	    [helpstring("get columns")] HRESULT GetTypeColumns( [in] BSTR schemaName, [in] BSTR className, [in] BSTR typeName,[out,retval] IDispatch ** ppTab);
+
+	};
+#else
+
+	[
+		object,
+		uuid(FB62A080-3FE8-11d1-ADC1-080009D213D2),
+		local,
+		helpstring("ISAPCatalog4C Interface"),
+		pointer_default(unique)
+	]
+	interface ISAPCatalog4C : IUnknown
+	{
+		[helpstring("Init")] HRESULT CreateFromData(
+										[in, string] const OLECHAR* wcsSchemaName,
+										[in] unsigned long lObjLen,
+  										[in, size_is(lObjLen)]byte* pScObj,
+										[in] unsigned long lVerbLen,
+  										[in, size_is(lVerbLen)]byte* pScVerb);
+		[helpstring("Init Type")] HRESULT InitializeType(
+										[in, string] const unsigned char * typeName,
+										[in, string] const unsigned char * typeAbapName,
+										[in, string] const unsigned char * typeDescription,
+										[in] unsigned long lTypeEntryLen,
+  										[in] byte* pTypeEntries,
+										[in] unsigned long lEntries);
+
+		[helpstring("get available schemas")] HRESULT GetSchemata( [out,retval] IDispatch ** ppTab);
+	    [helpstring("get classes")] HRESULT GetClasses( [in] BSTR schemaName, [out,retval] IDispatch ** ppTab);
+	    [helpstring("get methods")] HRESULT GetMethods( [in] BSTR schemaName, [in] BSTR className, [out,retval] IDispatch ** ppTab);
+	    [helpstring("get properties")] HRESULT GetProperties( [in] BSTR schemaName, [in] BSTR className, [out,retval] IDispatch ** ppTab);
+	    [helpstring("get types (records)")] HRESULT GetTypes( [in] BSTR schemaName, [in] BSTR className, [out,retval] IDispatch ** ppTab);
+	    [helpstring("get parameter")] HRESULT GetMethodParameters( [in] BSTR schemaName, [in] BSTR className, [in] BSTR methodName,[out,retval] IDispatch ** ppTab);
+	    [helpstring("get columns")] HRESULT GetTypeColumns( [in] BSTR schemaName, [in] BSTR className, [in] BSTR typeName,[out,retval] IDispatch ** ppTab);
+
+	};
+#endif
+
+
+	[
+		object,
+		uuid(B0B9E2C0-7A83-4c2a-9075-A9BEC92D897B),
+		dual,
+		helpstring("ISAPTRfcConnector"),
+		pointer_default(unique)
+	]
+	interface ISAPTRfcConnector : IDispatch
+	{
+		[propget, id(1000), helpstring("property Destination")] HRESULT Destination([out, retval] BSTR *pVal);
+	    [propput, id(1000), helpstring("property Destination")] HRESULT Destination([in] BSTR newVal);
+		[propget, id(1001), helpstring("property UserID")] HRESULT UserID([out, retval] BSTR *pVal);
+	    [propput, id(1001), helpstring("property UserID")] HRESULT UserID([in] BSTR newVal);
+	    [propput, id(1002), helpstring("property Password")] HRESULT Password([in] BSTR newVal);
+		[propget, id(1003), helpstring("property Language")] HRESULT Language([out, retval] BSTR *pVal);
+	    [propput, id(1003), helpstring("property Language")] HRESULT Language([in] BSTR newVal);
+		[propget, id(1004), helpstring("property Client")] HRESULT Client([out, retval] BSTR *pVal);
+	    [propput, id(1004), helpstring("property Client")] HRESULT Client([in] BSTR newVal);
+		[		  id(1005), helpstring("method PutSessionInfo")] 
+		HRESULT PutSessionInfo
+		        (
+					[in,optional] BSTR Destination,   
+					[in,optional] BSTR UserID,        
+					[in,optional] BSTR Password,      
+					[in,optional] BSTR Language,      
+					[in,optional] BSTR Client         
+				);
+		[		  id(1006), helpstring("method AdviseRfcGuiSink")] 
+		HRESULT AdviseRfcGuiSink
+				(
+					[in] IDispatch * pIRfcGuiSink, 
+					[in] short AbapDebug,	       
+					[in] short UseSapGui          
+				);
+		[id(1007), helpstring("Get the attributes of the connection to R/3")]
+		HRESULT GetConnectionAttribute([in,optional]BSTR AttrName,[out,retval] VARIANT *pAttrValue); 
+		[propget, id(1008), helpstring("property KeepSAPContext")] HRESULT KeepSAPContext([out,retval] VARIANT_BOOL *pVal);
+	    [propput, id(1008), helpstring("property KeepSAPContext")] HRESULT KeepSAPContext([in] VARIANT_BOOL newVal);
+		[		  id(1009), helpstring("method GetNewTID")] HRESULT GetNewTID([out,retval] BSTR *TID );
+		[propget, id(1010), helpstring("property TID")] HRESULT TID([out, retval] BSTR *pVal);
+	    [propput, id(1010), helpstring("property TID")] HRESULT TID([in] BSTR newVal);
+		[		  id(1011), helpstring("method Confirm")] HRESULT Confirm([in,optional] BSTR TID );
+	};
+
+
+	[
+		object,
+		uuid(F66023A4-EB0D-45ce-A047-9A82F7BA322C),
+		dual,
+		helpstring("ISAPQRfcConnector"),
+		pointer_default(unique)
+	]
+	interface ISAPQRfcConnector : IDispatch
+	{
+		[propget, id(1000), helpstring("property Destination")] HRESULT Destination([out, retval] BSTR *pVal);
+	    [propput, id(1000), helpstring("property Destination")] HRESULT Destination([in] BSTR newVal);
+		[propget, id(1001), helpstring("property UserID")] HRESULT UserID([out, retval] BSTR *pVal);
+	    [propput, id(1001), helpstring("property UserID")] HRESULT UserID([in] BSTR newVal);
+	    [propput, id(1002), helpstring("property Password")] HRESULT Password([in] BSTR newVal);
+		[propget, id(1003), helpstring("property Language")] HRESULT Language([out, retval] BSTR *pVal);
+	    [propput, id(1003), helpstring("property Language")] HRESULT Language([in] BSTR newVal);
+		[propget, id(1004), helpstring("property Client")] HRESULT Client([out, retval] BSTR *pVal);
+	    [propput, id(1004), helpstring("property Client")] HRESULT Client([in] BSTR newVal);
+		[		  id(1005), helpstring("method PutSessionInfo")] 
+		HRESULT PutSessionInfo
+		        (
+					[in,optional] BSTR Destination,   
+					[in,optional] BSTR UserID,        
+					[in,optional] BSTR Password,      
+					[in,optional] BSTR Language,      
+					[in,optional] BSTR Client         
+				);
+		[id(1006), helpstring("Get the attributes of the connection to R/3")]
+		HRESULT GetConnectionAttribute([in,optional]BSTR AttrName,[out,retval] VARIANT *pAttrValue); 
+		[propget, id(1007), helpstring("property KeepSAPContext")] HRESULT KeepSAPContext([out,retval] VARIANT_BOOL *pVal);
+	    [propput, id(1007), helpstring("property KeepSAPContext")] HRESULT KeepSAPContext([in] VARIANT_BOOL newVal);
+		[		  id(1008), helpstring("method GetNewTID")] HRESULT GetNewTID([out,retval] BSTR *TID );
+		[propget, id(1009), helpstring("property TID")] HRESULT TID([out, retval] BSTR *pVal);
+	    [propput, id(1009), helpstring("property TID")] HRESULT TID([in] BSTR newVal);
+		[propget, id(1010), helpstring("property QueueName")] HRESULT QueueName([out, retval] BSTR *pVal);
+	    [propput, id(1010), helpstring("property QueueName")] HRESULT QueueName([in] BSTR newVal);
+		[propget, id(1011), helpstring("property QueueItemIndex")] HRESULT QueueItemIndex([out, retval] long *pVal);
+	    [propput, id(1011), helpstring("property QueueItemIndex")] HRESULT QueueItemIndex([in] long newVal);
+		[		  id(1012), helpstring("method Confirm")] HRESULT Confirm([in,optional] BSTR TID );
+		[		  id(1013), helpstring("method ActivateQueue")] HRESULT ActivateQueue([in] BSTR QueueName );
+		[		  id(1014), helpstring("method DeactivateQueue")] HRESULT DeactivateQueue([in] BSTR QueueName );
+	};
+
+
+
+

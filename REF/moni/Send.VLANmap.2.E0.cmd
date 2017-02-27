@@ -15,9 +15,6 @@ MODE CON: COLS=120 LINES=40
 echo.
 echo.
 echo.
-echo                        ********Generate DCP VLAN Sheet**********************
-echo                        ********Auto Collect Data****************************
-echo                        ********Manual Create Excel Data*********************
 echo                        ********Auto Send VLAN Sheet*************************
 echo                        ********Created by: Sumit Das, Linde GSPO BASIS******
 echo                        ********Created On: 2017.02.26***********************
@@ -51,47 +48,7 @@ echo.
 set "dummy="
 set /p DUMMY=Hit ENTER to START...
 if defined dummy (echo Hit ENTER to Start !) else (echo ENTER was pressed)
-wscript "Physical.IP.vbs"
-echo.
-echo.
-echo         Making All DCP Physical Host Files List
-echo.
-echo.
-call "makeDCP.PHY.HOST.file.AUTO.cmd"
-echo.
-echo.
-echo         Completed All DCP Physical Host Files List
-echo.
-echo         Reading All Hosts to collect Service Data
-echo.
-echo.
-wscript "ServiceData.vbs"
-call "readHOSTdata.plink.AUTO.cmd"
-echo.
-echo.
-echo         Completed Reading Service Data
-REM cscript "Dummy.vbs" 
-echo.
-echo.
-wscript "xlsMACRO.vbs"
-echo         Now go and Make the VLAN Sheet from MACRO
-echo         Open GSPO_Basis_Make_VLAN_Sheet_V3.xlsm
-echo         Remove Macro from DCP_VLAN_Sheet.xls
-echo         Don't return here until your VLAN Sheet is macro free !!
-echo.
-echo.
-set "dummy="
-set /p DUMMY=Hit ENTER to Start FTP of VLAN Sheet...
-if defined dummy (echo Hit ENTER to Continue FTP of VLAN Sheet !!) else (echo ENTER was pressed)
-REM call "DCP_VLAN_Sheet_V4.xlsm"
-wscript "FTPprompt.vbs"
-REM perl "csv_2_excel.pl" "VLANsheetLIVE.CSV" "VLANsheetPERL.xls"
-echo.
-echo.
 ftp -n -s:VLANftpcmd.dat wlggceod000e0.linde.lds.grp
-call "Get.Send.VLANmap.link.ME.cmd"
-REM timeout /t 180 >null
-REM goto loop
 echo .
 echo.
 echo         Nothing Else to Do !

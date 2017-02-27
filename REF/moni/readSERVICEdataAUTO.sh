@@ -342,3 +342,115 @@ do
 done
 
 rm -rf /home/users/in10c2/moni/tmp_*
+
+#echo "Live Cache System Data Collection"
+#set -x
+rm -f /home/users/in10c2/moni/tmp_SID_LC
+ps -ef | grep sdb | grep dbmsrv | awk '{print $(NF-2)}' | cut -c 8-10 > /home/users/in10c2/moni/tmp_SID_LC
+if [ -f /home/users/in10c2/moni/tmp_SID_LC ] ; then
+i=0
+while IFS= read -r line; do
+   SID_LC[$i]="$line" ;   
+   SID_LC_LO[$i]=`echo "$SID_LC" | awk '{print tolower($0)}'` ;
+   (( i += 1 )) ;
+done < /home/users/in10c2/moni/tmp_SID_LC
+#echo ${SID[@]} ; echo ${#SID[@]} ; echo "${SID[2]}"
+fi
+
+i=0
+while [ $i -lt "${#SID_LC[@]}" ]
+do
+        SYSSID=`echo "${SID_LC[$i]}"`
+        LCsearch="linlc"$SYSSID
+        DBHOST=`grep -i $LCsearch /etc/hosts | head -n 1 | awk '{print ($NF)}'`
+        TYPE=`echo "$DBHOST" | cut -c 4-5 | awk '{print toupper($0)}'`
+        NR=`echo "$DBHOST" | cut -c 9-10`
+        SERVICE_NAME=$SYSSID"_"$NR"_"$TYPE
+        INST="LC"
+        IP=`ping -c 1 $DBHOST | grep PING | awk '{print $3}' | rev | cut -c3- | rev | cut -c2-`
+        CUST_IP_DB=$IP
+        echo $SERVTYPE,$CLUSTER,$SERVER_NAME,$PHY_SERVER_NAME,$PHY_IP,$SERVER_SLICE,$VLAN_ID,$SERVICE_NAME,$IP,$INST
+        echo $SERVTYPE,$CLUSTER,$SERVER_NAME,$PHY_SERVER_NAME,$PHY_IP,$SERVER_SLICE,$VLAN_ID,$SERVICE_NAME,$IP,$INST >> /home/users/in10c2/sumit/VLANmap/$SHEETname.CSV
+         (( i += 1 ))
+done
+
+
+#echo "TREX System Data Collection"
+#set -x
+rm -f /home/users/in10c2/moni/tmp_SID_TX
+ps -ef | grep TREXDaemon | grep ini | awk '{print $(NF)}' | cut -d _ -f 1 | rev | cut -c 1-3 | rev > /home/users/in10c2/moni/tmp_SID_TX
+ps -ef | grep TREXDaemon | grep ini | awk '{print $(NF)}' | cut -d _ -f 2 > /home/users/in10c2/moni/tmp_INST_TX
+ps -ef | grep TREXDaemon | grep ini | awk '{print $(NF)}' | cut -d _ -f 3 > /home/users/in10c2/moni/tmp_HOSTNAMES_TX
+if [ -f /home/users/in10c2/moni/tmp_SID_TX ] ; then
+i=0
+while IFS= read -r line; do
+   SID_TX[$i]="$line" ;   
+   SID_TX_LO[$i]=`echo "$SID_TX" | awk '{print tolower($0)}'` ;
+   (( i += 1 )) ;
+done < /home/users/in10c2/moni/tmp_SID_TX
+#echo ${SID[@]} ; echo ${#SID[@]} ; echo "${SID[2]}"
+fi
+if [ -f /home/users/in10c2/moni/tmp_INST_TX ] ; then
+i=0
+while IFS= read -r line; do
+   INST_TX[$i]="$line" ;   
+   (( i += 1 )) ;
+done < /home/users/in10c2/moni/tmp_INST_TX
+#echo ${SID[@]} ; echo ${#SID[@]} ; echo "${SID[2]}"
+fi
+if [ -f /home/users/in10c2/moni/tmp_HOSTNAMES_TX ] ; then
+i=0
+while IFS= read -r line; do
+   TREX_HOSTNAMES[$i]="$line" ;   
+   (( i += 1 )) ;
+done < /home/users/in10c2/moni/tmp_HOSTNAMES_TX
+#echo ${SID[@]} ; echo ${#SID[@]} ; echo "${SID[2]}"
+fi
+
+i=0
+while [ $i -lt "${#SID_TX[@]}" ]
+do
+        SYSSID=`echo "${SID_TX[$i]}"`
+        TXHOST=`echo "${TREX_HOSTNAMES[$i]}"`
+        TYPE=`echo "$TXHOST" | cut -c 4-5 | awk '{print toupper($0)}'`
+        NR=`echo "$TXHOST" | cut -c 9-10`
+        SERVICE_NAME=$SYSSID"_"$NR"_"$TYPE
+        IP=`ping -c 1 $TXHOST | grep PING | awk '{print $3}' | rev | cut -c3- | rev | cut -c2-`
+        INST=`echo "${INST_TX[$i]}"`
+        CUST_IP_DB=$IP
+        echo $SERVTYPE,$CLUSTER,$SERVER_NAME,$PHY_SERVER_NAME,$PHY_IP,$SERVER_SLICE,$VLAN_ID,$SERVICE_NAME,$IP,$INST
+        echo $SERVTYPE,$CLUSTER,$SERVER_NAME,$PHY_SERVER_NAME,$PHY_IP,$SERVER_SLICE,$VLAN_ID,$SERVICE_NAME,$IP,$INST >> /home/users/in10c2/sumit/VLANmap/$SHEETname.CSV
+         (( i += 1 ))
+done
+
+
+#echo "CUPs Printing Data Collection"
+#set -x
+rm -f /home/users/in10c2/moni/tmp_HOST_CUPs
+ps -ef | grep cupsd | grep -v grep | grep -v spool | awk '{print $(NF)}' | cut -d/ -f6 > /home/users/in10c2/moni/tmp_HOST_CUPs
+if [ -f /home/users/in10c2/moni/tmp_HOST_CUPs ] ; then
+i=0
+while IFS= read -r line; do
+   CUPS_HOSTNAME[$i]="$line" ;   
+   (( i += 1 )) ;
+done < /home/users/in10c2/moni/tmp_HOST_CUPs
+#echo ${SID[@]} ; echo ${#SID[@]} ; echo "${SID[2]}"
+fi
+
+i=0
+while [ $i -lt "${#CUPS_HOSTNAME[@]}" ]
+do
+        SYSSID="CUP"
+        CUPsHOST="`echo "${CUPS_HOSTNAME[$i]}"`"
+        TYPE="CP"
+        NR=`echo "$CUPsHOST" | cut -c 9-10`
+        SERVICE_NAME=$SYSSID"_"$NR"_"$TYPE
+        INST="CUPs"
+        IP=`ping -c 1 $CUPsHOST | grep PING | awk '{print $3}' | rev | cut -c3- | rev | cut -c2-`
+        CUST_IP_DB=$IP
+        echo $SERVTYPE,$CLUSTER,$SERVER_NAME,$PHY_SERVER_NAME,$PHY_IP,$SERVER_SLICE,$VLAN_ID,$SERVICE_NAME,$IP,$INST
+        echo $SERVTYPE,$CLUSTER,$SERVER_NAME,$PHY_SERVER_NAME,$PHY_IP,$SERVER_SLICE,$VLAN_ID,$SERVICE_NAME,$IP,$INST >> /home/users/in10c2/sumit/VLANmap/$SHEETname.CSV
+         (( i += 1 ))
+done
+
+rm -rf /home/users/in10c2/moni/tmp_*
