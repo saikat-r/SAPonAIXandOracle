@@ -1,0 +1,96 @@
+#
+# Apaxy by @adamwhitcroft
+#
+# For a full breakdown of the mod_autoindex module:
+# http://apache.org/docs/2.2/mod/mod_autoindex.html
+#
+
+	# ENABLE INDEXING
+	Options +Indexes
+
+	# INDEX OPTIONS
+	IndexOptions +Charset=UTF-8 +FancyIndexing +IgnoreCase +FoldersFirst +XHTML +HTMLTable +SuppressRules +SuppressDescription +NameWidth=* +IconsAreLinks
+
+    	# META VIEWPORT
+    	IndexHeadInsert "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />"
+
+	# HIDE /theme DIRECTORY
+	IndexIgnore .htaccess /theme
+
+#
+# GENERAL ICONS (BLANK, DIRECTORY, PARENT DIRECTORY)
+#
+
+DirectoryIndex  index.html  index.php  /_h5ai/server/php/index.php
+
+#
+# Replace sumit with your directory URL eg:
+# If your directory is http://mywebsite.com/share/
+# you would change to:
+#
+# AddIcon /share/theme/icons/blank.png ^^BLANKICON^^
+#
+
+	AddIcon /sumit/theme/icons/blank.png ^^BLANKICON^^
+	AddIcon /sumit/theme/icons/folder.png ^^DIRECTORY^^
+	AddIcon /sumit/theme/icons/folder-home.png ..
+	
+	AddIconByType (TXT,/sumit/theme/icons/text.png) text/*
+	AddIconByType (IMG,/sumit/theme/icons/image.png) image/*
+	AddIconByType (SND,/sumit/theme/icons/audio.png) audio/*
+	AddIconByType (VID,/sumit/theme/icons/video.png) video/*
+
+#
+# EXTENSION SPECIFIC ICONS
+#
+
+	AddIcon /sumit/theme/icons/archive.png .7z .bz2 .cab .gz .tar
+	AddIcon /sumit/theme/icons/audio.png .aac .aif .aifc .aiff .ape .au .flac .iff .m4a .mid .mp3 .mpa .ra .wav .wma .f4a .f4b .oga .ogg .xm .it .s3m .mod
+	AddIcon /sumit/theme/icons/bin.png .bin .hex
+	AddIcon /sumit/theme/icons/bmp.png .bmp
+	AddIcon /sumit/theme/icons/c.png .c
+	AddIcon /sumit/theme/icons/calc.png .xlsx .xlsm .xltx .xltm .xlam .xlr .xls .csv
+	AddIcon /sumit/theme/icons/cd.png .iso
+	AddIcon /sumit/theme/icons/cpp.png .cpp
+	AddIcon /sumit/theme/icons/css.png .css .sass .scss
+	AddIcon /sumit/theme/icons/deb.png .deb
+	AddIcon /sumit/theme/icons/doc.png .doc .docx .docm .dot .dotx .dotm .log .msg .odt .pages .rtf .tex .wpd .wps
+	AddIcon /sumit/theme/icons/draw.png .svg .svgz
+	AddIcon /sumit/theme/icons/eps.png .ai .eps
+	AddIcon /sumit/theme/icons/exe.png .exe
+	AddIcon /sumit/theme/icons/gif.png .gif
+	AddIcon /sumit/theme/icons/h.png .h
+	AddIcon /sumit/theme/icons/html.png .html .xhtml .shtml .htm .URL .url
+	AddIcon /sumit/theme/icons/ico.png .ico
+	AddIcon /sumit/theme/icons/java.png .jar
+	AddIcon /sumit/theme/icons/jpg.png .jpg .jpeg .jpe
+	AddIcon /sumit/theme/icons/js.png .js .json
+	AddIcon /sumit/theme/icons/markdown.png .md
+	AddIcon /sumit/theme/icons/package.png .pkg .dmg
+	AddIcon /sumit/theme/icons/pdf.png .pdf
+	AddIcon /sumit/theme/icons/php.png .php .phtml
+	AddIcon /sumit/theme/icons/playlist.png .m3u .m3u8 .pls .pls8
+	AddIcon /sumit/theme/icons/png.png .png
+	AddIcon /sumit/theme/icons/ps.png .ps
+	AddIcon /sumit/theme/icons/psd.png .psd
+	AddIcon /sumit/theme/icons/py.png .py
+	AddIcon /sumit/theme/icons/rar.png .rar
+	AddIcon /sumit/theme/icons/rb.png .rb
+	AddIcon /sumit/theme/icons/rpm.png .rpm
+	AddIcon /sumit/theme/icons/rss.png .rss
+	AddIcon /sumit/theme/icons/script.png .bat .cmd .sh
+	AddIcon /sumit/theme/icons/sql.png .sql
+	AddIcon /sumit/theme/icons/tiff.png .tiff .tif
+	AddIcon /sumit/theme/icons/text.png .txt .nfo
+	AddIcon /sumit/theme/icons/video.png .asf .asx .avi .flv .mkv .mov .mp4 .mpg .rm .srt .swf .vob .wmv .m4v .f4v .f4p .ogv
+	AddIcon /sumit/theme/icons/xml.png .xml
+	AddIcon /sumit/theme/icons/zip.png .zip
+	DefaultIcon /sumit/theme/icons/default.png
+
+#
+# THEME FILES
+#
+
+	HeaderName /sumit/theme/header.html
+	ReadmeName /sumit/theme/footer.html
+	IndexStyleSheet "/sumit/theme/style.css"

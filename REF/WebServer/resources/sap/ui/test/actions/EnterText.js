@@ -1,0 +1,6 @@
+/*!
+ * UI development toolkit for HTML5 (OpenUI5)
+ * (c) Copyright 2009-2016 SAP SE or an SAP affiliate company.
+ * Licensed under the Apache License, Version 2.0 - see LICENSE.txt.
+ */
+sap.ui.define(['jquery.sap.global','./Action'],function($,A){"use strict";return A.extend("sap.ui.test.actions.EnterText",{metadata:{properties:{text:{type:"string"}},publicMethods:["executeOn"]},executeOn:function(c){var a=c.getFocusDomRef(),b=$(a);if(!a){$.sap.log.error("Control "+c+" has no focusable dom representation",this._sLogPrefix);return;}if(this.getText()===undefined){$.sap.log.error("Please provide a text for this EnterText action",this._sLogPrefix);return;}b.focus();if(!b.is(":focus")){$.sap.log.warning("Control "+c+" could not be focused - maybe you are debugging?",this._sLogPrefix);}var u=this._getUtils();var w=b.is(":focus");if(!w){$.sap.log.warning("Control "+c+" could not be focused - maybe you are debugging?",this._sLogPrefix);u.triggerEvent("focusin",a);u.triggerEvent("focus",a);}u.triggerKeydown(a,$.sap.KeyCodes.DELETE);u.triggerKeyup(a,$.sap.KeyCodes.DELETE);b.val("");u.triggerEvent("input",a);this.getText().split("").forEach(function(C){u.triggerCharacterInput(a,C);u.triggerEvent("input",a);});if(w){b.blur();}else{u.triggerEvent("focusout",a);u.triggerEvent("blur",a);}u.triggerEvent("search",a);}});},true);

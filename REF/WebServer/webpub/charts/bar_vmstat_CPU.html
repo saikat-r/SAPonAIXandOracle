@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+	<head>
+		<title>AIX CPU Utilization</title>
+		<script src="../Chart.js"></script>
+                <meta http-equiv="refresh" content="5">
+	</head>
+<style type="text/css">
+h1 {
+    color: blue;
+    text-align: left;
+    font-family: verdana,sans-serif;
+	font-size:20px;
+}
+h2 {
+    color: orange;
+    text-align: left;
+    font-family: verdana,sans-serif;
+	font-size:15px;
+}
+h3 {
+    color: green;
+    text-align: left;
+    font-family: verdana,sans-serif;
+	font-size:10px;
+}
+
+</style>
+	<body>
+		<div style="width: 50%">
+			<canvas id="canvas" height="450" width="600"></canvas>
+		</div>
+		<h1> CPU Utilization from VMSTAT</h1>
+		<h2> myheader2 </h2>
+                <h3> myheader3 </h3>		
+<script>
+	var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+	var barChartData = {
+		labels : ["USER","SYSTEM","IDLE","WAIT"],
+		datasets : [
+			{
+				fillColor : "rgba(220,50,220,0.5)",
+				strokeColor : "rgba(220,50,220,0.8)",
+				highlightFill: "rgba(220,50,220,0.75)",
+				highlightStroke: "rgba(220,50,220,1)",
+				data : [var_us_1,var_sy_1,var_id_1,var_wa_1]
+			},
+			{
+				fillColor : "rgba(151,187,205,0.5)",
+				strokeColor : "rgba(151,187,205,0.8)",
+				highlightFill : "rgba(151,187,205,0.75)",
+				highlightStroke : "rgba(151,187,205,1)",
+				data : [var_us_2,var_sy_2,var_id_2,var_wa_2]
+			},
+			{
+				fillColor : "rgba(220,220,220,0.5)",
+				strokeColor : "rgba(220,220,220,0.8)",
+				highlightFill: "rgba(220,220,220,0.75)",
+				highlightStroke: "rgba(220,220,220,1)",
+				data : [var_us_3,var_sy_3,var_id_3,var_wa_3]
+			},
+			{
+				fillColor : "rgba(151,10,205,0.5)",
+				strokeColor : "rgba(151,10,205,0.8)",
+				highlightFill : "rgba(151,10,205,0.75)",
+				highlightStroke : "rgba(151,10,205,1)",
+				data : [var_us_4,var_sy_4,var_id_4,var_wa_4]
+			}
+		]
+
+	}
+	window.onload = function(){
+		var ctx = document.getElementById("canvas").getContext("2d");
+		window.myBar = new Chart(ctx).Bar(barChartData, {
+			responsive : true
+		});
+	}
+
+	</script>
+	</body>
+</html>

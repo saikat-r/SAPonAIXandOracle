@@ -1,0 +1,96 @@
+#
+# Apaxy by @adamwhitcroft
+#
+# For a full breakdown of the mod_autoindex module:
+# http://apache.org/docs/2.2/mod/mod_autoindex.html
+#
+
+	# ENABLE INDEXING
+	Options +Indexes
+
+	# INDEX OPTIONS
+	IndexOptions +Charset=UTF-8 +FancyIndexing +IgnoreCase +FoldersFirst +XHTML +HTMLTable +SuppressRules +SuppressDescription +NameWidth=* +IconsAreLinks
+
+    	# META VIEWPORT
+    	IndexHeadInsert "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />"
+
+	# HIDE /theme DIRECTORY
+	IndexIgnore .htaccess /theme
+
+#
+# GENERAL ICONS (BLANK, DIRECTORY, PARENT DIRECTORY)
+#
+
+DirectoryIndex  index.html  index.php  /_h5ai/server/php/index.php
+
+#
+# Replace basis with your directory URL eg:
+# If your directory is http://mywebsite.com/share/
+# you would change to:
+#
+# AddIcon /share/theme/icons/blank.png ^^BLANKICON^^
+#
+
+	AddIcon /basis/theme/icons/blank.png ^^BLANKICON^^
+	AddIcon /basis/theme/icons/folder.png ^^DIRECTORY^^
+	AddIcon /basis/theme/icons/folder-home.png ..
+	
+	AddIconByType (TXT,/basis/theme/icons/text.png) text/*
+	AddIconByType (IMG,/basis/theme/icons/image.png) image/*
+	AddIconByType (SND,/basis/theme/icons/audio.png) audio/*
+	AddIconByType (VID,/basis/theme/icons/video.png) video/*
+
+#
+# EXTENSION SPECIFIC ICONS
+#
+
+	AddIcon /basis/theme/icons/archive.png .7z .bz2 .cab .gz .tar
+	AddIcon /basis/theme/icons/audio.png .aac .aif .aifc .aiff .ape .au .flac .iff .m4a .mid .mp3 .mpa .ra .wav .wma .f4a .f4b .oga .ogg .xm .it .s3m .mod
+	AddIcon /basis/theme/icons/bin.png .bin .hex
+	AddIcon /basis/theme/icons/bmp.png .bmp
+	AddIcon /basis/theme/icons/c.png .c
+	AddIcon /basis/theme/icons/calc.png .xlsx .xlsm .xltx .xltm .xlam .xlr .xls .csv
+	AddIcon /basis/theme/icons/cd.png .iso
+	AddIcon /basis/theme/icons/cpp.png .cpp
+	AddIcon /basis/theme/icons/css.png .css .sass .scss
+	AddIcon /basis/theme/icons/deb.png .deb
+	AddIcon /basis/theme/icons/doc.png .doc .docx .docm .dot .dotx .dotm .log .msg .odt .pages .rtf .tex .wpd .wps
+	AddIcon /basis/theme/icons/draw.png .svg .svgz
+	AddIcon /basis/theme/icons/eps.png .ai .eps
+	AddIcon /basis/theme/icons/exe.png .exe
+	AddIcon /basis/theme/icons/gif.png .gif
+	AddIcon /basis/theme/icons/h.png .h
+	AddIcon /basis/theme/icons/html.png .html .xhtml .shtml .htm .URL .url
+	AddIcon /basis/theme/icons/ico.png .ico
+	AddIcon /basis/theme/icons/java.png .jar
+	AddIcon /basis/theme/icons/jpg.png .jpg .jpeg .jpe
+	AddIcon /basis/theme/icons/js.png .js .json
+	AddIcon /basis/theme/icons/markdown.png .md
+	AddIcon /basis/theme/icons/package.png .pkg .dmg
+	AddIcon /basis/theme/icons/pdf.png .pdf
+	AddIcon /basis/theme/icons/php.png .php .phtml
+	AddIcon /basis/theme/icons/playlist.png .m3u .m3u8 .pls .pls8
+	AddIcon /basis/theme/icons/png.png .png
+	AddIcon /basis/theme/icons/ps.png .ps
+	AddIcon /basis/theme/icons/psd.png .psd
+	AddIcon /basis/theme/icons/py.png .py
+	AddIcon /basis/theme/icons/rar.png .rar
+	AddIcon /basis/theme/icons/rb.png .rb
+	AddIcon /basis/theme/icons/rpm.png .rpm
+	AddIcon /basis/theme/icons/rss.png .rss
+	AddIcon /basis/theme/icons/script.png .bat .cmd .sh
+	AddIcon /basis/theme/icons/sql.png .sql
+	AddIcon /basis/theme/icons/tiff.png .tiff .tif
+	AddIcon /basis/theme/icons/text.png .txt .nfo
+	AddIcon /basis/theme/icons/video.png .asf .asx .avi .flv .mkv .mov .mp4 .mpg .rm .srt .swf .vob .wmv .m4v .f4v .f4p .ogv
+	AddIcon /basis/theme/icons/xml.png .xml
+	AddIcon /basis/theme/icons/zip.png .zip
+	DefaultIcon /basis/theme/icons/default.png
+
+#
+# THEME FILES
+#
+
+	HeaderName /basis/theme/header.html
+	ReadmeName /basis/theme/footer.html
+	IndexStyleSheet "/basis/theme/style.css"

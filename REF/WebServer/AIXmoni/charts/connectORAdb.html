@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>TEST PHP ORA DB</title>
+</head>
+<body>
+<p align=center>Here you will see if AGH DB is connected or NOT ... !</p>
+
+</body>
+<?php
+    /*
+	$db = "(DESCRIPTION=(ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.1.34)(PORT = 1521)))(CONNECT_DATA=(SID=orcl)))" ;
+	*/
+	$db = "(DESCRIPTION=(ADDRESS = (COMMUNITY = SAP.WORLD)(PROTOCOL = TCP)(HOST = lindbagh5800c4.edc.linde.grp)(PORT = 1558))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = AGH)))" ;
+
+    if($c = OCILogon("system", "Linde1234", $db))
+    {
+        echo “Successfully connected to Oracle.\n”;
+        OCILogoff($c);
+    }
+    else
+    {
+        $err = OCIError();
+        echo “Connection failed.” . $err[text];
+    }
+?>
+
+</html>
+

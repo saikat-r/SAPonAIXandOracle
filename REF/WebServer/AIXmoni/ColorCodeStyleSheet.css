@@ -1,0 +1,27 @@
+.IDEALlow {
+    background-color: #1b7837; color: #fff;
+}
+
+.IDEALhigh {
+    background-color: #7fbf7b; color: #000;
+}
+
+.USEhigh {
+    background-color: #d9f0d3; color: #000;
+}
+
+.USElow {
+    background-color: #ffffff; color: #000;
+}
+
+.OK {
+    background-color: #e7d4e8; color: #000;
+}
+
+.NOTOK {
+    background-color: #af8dc3; color: #000;
+}
+
+.SoSo {
+    background-color: #762a83; color: #fff;
+}
