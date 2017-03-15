@@ -346,7 +346,7 @@ rm -rf /home/users/in10c2/moni/tmp_*
 #echo "Live Cache System Data Collection"
 #set -x
 rm -f /home/users/in10c2/moni/tmp_SID_LC
-ps -ef | grep sdb | grep dbmsrv | awk '{print $(NF-2)}' | cut -c 8-10 > /home/users/in10c2/moni/tmp_SID_LC
+ps -ef | grep sdb | grep dbmsrv | head -n 1 | awk '{print $(NF-2)}' | cut -c 8-10 > /home/users/in10c2/moni/tmp_SID_LC
 if [ -f /home/users/in10c2/moni/tmp_SID_LC ] ; then
 i=0
 while IFS= read -r line; do
@@ -361,8 +361,9 @@ i=0
 while [ $i -lt "${#SID_LC[@]}" ]
 do
         SYSSID=`echo "${SID_LC[$i]}"`
-        LCsearch="linlc"$SYSSID
-        DBHOST=`grep -i $LCsearch /etc/hosts | head -n 1 | awk '{print ($NF)}'`
+        LCsearchTMP="linlc"$SYSSID
+        LCsearch=`grep -i $LCsearchTMP /etc/hosts | head -n 1 | awk '{print $1}'`
+        DBHOST=`nslookup $LCsearch | grep name | awk '{print ($NF)}' | cut -d . -f1`
         TYPE=`echo "$DBHOST" | cut -c 4-5 | awk '{print toupper($0)}'`
         NR=`echo "$DBHOST" | cut -c 9-10`
         SERVICE_NAME=$SYSSID"_"$NR"_"$TYPE
