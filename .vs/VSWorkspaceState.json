@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\REF"
+    "\\REF",
+    "\\REF\\moni"
   ],
+  "SelectedNode": "\\REF\\moni\\backupSTATUS.plink.cmd",
   "PreviewInSolutionExplorer": false
 }
