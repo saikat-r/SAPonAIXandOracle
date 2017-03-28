@@ -1,5 +1,4 @@
 while true
-
 do
 date
 df -gt | grep oracle | grep DGE
