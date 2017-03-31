@@ -1,0 +1,246 @@
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State           PID
+  TCP    0.0.0.0:22             0.0.0.0:0              LISTENING       3984
+ [sshd.exe]
+  TCP    0.0.0.0:80             0.0.0.0:0              LISTENING       4
+ Can not obtain ownership information
+  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       740
+  RpcSs
+ [svchost.exe]
+  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4
+ Can not obtain ownership information
+  TCP    0.0.0.0:515            0.0.0.0:0              LISTENING       9780
+ [SAPLPD.EXE]
+  TCP    0.0.0.0:623            0.0.0.0:0              LISTENING       6960
+ [LMS.exe]
+  TCP    0.0.0.0:902            0.0.0.0:0              LISTENING       5176
+ [vmware-authd.exe]
+  TCP    0.0.0.0:912            0.0.0.0:0              LISTENING       5176
+ [vmware-authd.exe]
+  TCP    0.0.0.0:2701           0.0.0.0:0              LISTENING       8780
+ [CmRcService.exe]
+  TCP    0.0.0.0:3306           0.0.0.0:0              LISTENING       4084
+ [mysqld.exe]
+  TCP    0.0.0.0:8180           0.0.0.0:0              LISTENING       3896
+ [httpd.exe]
+  TCP    0.0.0.0:16992          0.0.0.0:0              LISTENING       6960
+ [LMS.exe]
+  TCP    0.0.0.0:44111          0.0.0.0:0              LISTENING       2628
+ [FrameworkService.exe]
+  TCP    0.0.0.0:49152          0.0.0.0:0              LISTENING       800
+ [wininit.exe]
+  TCP    0.0.0.0:49153          0.0.0.0:0              LISTENING       984
+  eventlog
+ [svchost.exe]
+  TCP    0.0.0.0:49154          0.0.0.0:0              LISTENING       1144
+  Schedule
+ [svchost.exe]
+  TCP    0.0.0.0:49155          0.0.0.0:0              LISTENING       876
+ [lsass.exe]
+  TCP    0.0.0.0:49474          0.0.0.0:0              LISTENING       4
+ Can not obtain ownership information
+  TCP    0.0.0.0:50258          0.0.0.0:0              LISTENING       856
+ [services.exe]
+  TCP    0.0.0.0:54525          0.0.0.0:0              LISTENING       1820
+ [spoolsv.exe]
+  TCP    0.0.0.0:54559          0.0.0.0:0              LISTENING       4856
+ [STCServ.exe]
+  TCP    0.0.0.0:57007          0.0.0.0:0              LISTENING       4856
+ [STCServ.exe]
+  TCP    10.81.62.89:139        0.0.0.0:0              LISTENING       4
+ Can not obtain ownership information
+  TCP    10.81.62.89:49708      40.101.45.242:443      ESTABLISHED     10976
+ [UcMapi.exe]
+  TCP    10.81.62.89:50255      10.81.72.135:8080      ESTABLISHED     4420
+ [OneDrive.exe]
+  TCP    10.81.62.89:50276      10.81.70.34:57749      ESTABLISHED     1820
+ [spoolsv.exe]
+  TCP    10.81.62.89:52564      10.141.64.51:22        ESTABLISHED     11508
+ [PUTTY.EXE]
+  TCP    10.81.62.89:52662      10.141.240.12:443      ESTABLISHED     6100
+ [LFMonitor.exe]
+  TCP    10.81.62.89:53231      10.81.70.34:57749      ESTABLISHED     1820
+ [spoolsv.exe]
+  TCP    10.81.62.89:53394      40.101.9.202:443       ESTABLISHED     7884
+ [lync.exe]
+  TCP    10.81.62.89:53425      10.141.0.169:80        ESTABLISHED     10512
+ [IEXPLORE.EXE]
+  TCP    10.81.62.89:53452      40.101.49.66:443       ESTABLISHED     8388
+ [OUTLOOK.EXE]
+  TCP    10.81.62.89:53592      40.101.76.130:443      ESTABLISHED     8388
+ [OUTLOOK.EXE]
+  TCP    10.81.62.89:53672      40.101.18.34:443       ESTABLISHED     8388
+ [OUTLOOK.EXE]
+  TCP    10.81.62.89:53699      10.141.64.22:3210      ESTABLISHED     196
+ [saplogon.exe]
+  TCP    10.81.62.89:53720      40.101.28.178:443      ESTABLISHED     7884
+ [lync.exe]
+  TCP    10.81.62.89:53726      10.141.240.18:80       ESTABLISHED     1100
+  W32Time
+ [svchost.exe]
+  TCP    10.81.62.89:53728      10.81.72.135:8080      TIME_WAIT       0
+  TCP    10.81.62.89:53731      40.101.18.34:443       ESTABLISHED     8388
+ [OUTLOOK.EXE]
+  TCP    10.81.62.89:53732      10.81.72.135:8080      ESTABLISHED     12724
+ [SearchProtocolHost.exe]
+  TCP    10.81.62.89:53733      10.141.240.18:80       ESTABLISHED     12724
+ [SearchProtocolHost.exe]
+  TCP    10.81.62.89:53734      40.101.28.178:443      ESTABLISHED     12724
+ [SearchProtocolHost.exe]
+  TCP    10.81.62.89:53749      184.51.148.115:80      SYN_SENT        1452
+  CryptSvc
+ [svchost.exe]
+  TCP    10.81.62.89:53751      13.107.6.151:443       ESTABLISHED     4420
+ [OneDrive.exe]
+  TCP    10.81.62.89:53752      199.19.250.205:80      ESTABLISHED     4420
+ [OneDrive.exe]
+  TCP    10.81.62.89:54522      10.81.70.34:57749      ESTABLISHED     1820
+ [spoolsv.exe]
+  TCP    10.81.62.89:54523      10.81.70.34:57749      ESTABLISHED     1820
+ [spoolsv.exe]
+  TCP    10.81.62.89:54524      10.81.70.34:57749      ESTABLISHED     1820
+ [spoolsv.exe]
+  TCP    10.81.62.89:54527      10.81.70.34:57749      ESTABLISHED     1820
+ [spoolsv.exe]
+  TCP    10.81.62.89:58390      10.222.47.74:5061      ESTABLISHED     7660
+ [JabberVideo.exe]
+  TCP    10.81.62.89:59795      10.81.70.34:57749      ESTABLISHED     1820
+ [spoolsv.exe]
+  TCP    10.81.62.89:61541      52.112.194.84:443      ESTABLISHED     7884
+ [lync.exe]
+  TCP    10.81.62.89:63774      10.141.0.26:10123      ESTABLISHED     3744
+ [CcmExec.exe]
+  TCP    127.0.0.1:135          127.0.0.1:54526        ESTABLISHED     740
+  RpcSs
+ [svchost.exe]
+  TCP    127.0.0.1:5939         0.0.0.0:0              LISTENING       3728
+ [TeamViewer_Service.exe]
+  TCP    127.0.0.1:49713        0.0.0.0:0              LISTENING       10928
+ [SCNotification.exe]
+  TCP    127.0.0.1:53741        127.0.0.1:53740        TIME_WAIT       0
+  TCP    127.0.0.1:54526        127.0.0.1:135          ESTABLISHED     1820
+ [spoolsv.exe]
+  TCP    127.0.0.1:54538        0.0.0.0:0              LISTENING       9052
+ [jhi_service.exe]
+  TCP    127.0.0.1:59800        0.0.0.0:0              LISTENING       6960
+ [LMS.exe]
+  TCP    [::]:22                [::]:0                 LISTENING       3984
+ [sshd.exe]
+  TCP    [::]:80                [::]:0                 LISTENING       4
+ Can not obtain ownership information
+  TCP    [::]:135               [::]:0                 LISTENING       740
+  RpcSs
+ [svchost.exe]
+  TCP    [::]:445               [::]:0                 LISTENING       4
+ Can not obtain ownership information
+  TCP    [::]:623               [::]:0                 LISTENING       6960
+ [LMS.exe]
+  TCP    [::]:2701              [::]:0                 LISTENING       8780
+ [CmRcService.exe]
+  TCP    [::]:3306              [::]:0                 LISTENING       4084
+ [mysqld.exe]
+  TCP    [::]:8180              [::]:0                 LISTENING       3896
+ [httpd.exe]
+  TCP    [::]:16992             [::]:0                 LISTENING       6960
+ [LMS.exe]
+  TCP    [::]:44111             [::]:0                 LISTENING       2628
+ [FrameworkService.exe]
+  TCP    [::]:49152             [::]:0                 LISTENING       800
+ [wininit.exe]
+  TCP    [::]:49153             [::]:0                 LISTENING       984
+  eventlog
+ [svchost.exe]
+  TCP    [::]:49154             [::]:0                 LISTENING       1144
+  Schedule
+ [svchost.exe]
+  TCP    [::]:49155             [::]:0                 LISTENING       876
+ [lsass.exe]
+  TCP    [::]:49474             [::]:0                 LISTENING       4
+ Can not obtain ownership information
+  TCP    [::]:50258             [::]:0                 LISTENING       856
+ [services.exe]
+  TCP    [::]:54525             [::]:0                 LISTENING       1820
+ [spoolsv.exe]
+  TCP    [::1]:59801            [::1]:59803            ESTABLISHED     6960
+ [LMS.exe]
+  TCP    [::1]:59803            [::1]:59801            ESTABLISHED     6960
+ [LMS.exe]
+  UDP    0.0.0.0:123            *:*                                    1100
+  W32Time
+ [svchost.exe]
+  UDP    0.0.0.0:500            *:*                                    1144
+  IKEEXT
+ [svchost.exe]
+  UDP    0.0.0.0:4500           *:*                                    1144
+  IKEEXT
+ [svchost.exe]
+  UDP    0.0.0.0:5355           *:*                                    1452
+  Dnscache
+ [svchost.exe]
+  UDP    0.0.0.0:49152          *:*                                    4
+ Can not obtain ownership information
+  UDP    0.0.0.0:54870          *:*                                    3728
+ [TeamViewer_Service.exe]
+  UDP    10.81.62.89:137        *:*                                    4
+ Can not obtain ownership information
+  UDP    10.81.62.89:138        *:*                                    4
+ Can not obtain ownership information
+  UDP    10.81.62.89:1900       *:*                                    4772
+  SSDPSRV
+ [svchost.exe]
+  UDP    10.81.62.89:5353       *:*                                    4856
+ [STCServ.exe]
+  UDP    10.81.62.89:57067      *:*                                    4772
+  SSDPSRV
+ [svchost.exe]
+  UDP    10.81.68.217:5353      *:*                                    3728
+ [TeamViewer_Service.exe]
+  UDP    127.0.0.1:1900         *:*                                    4772
+  SSDPSRV
+ [svchost.exe]
+  UDP    127.0.0.1:51697        *:*                                    876
+ [lsass.exe]
+  UDP    127.0.0.1:53530        *:*                                    4856
+ [STCServ.exe]
+  UDP    127.0.0.1:56725        *:*                                    6100
+ [LFMonitor.exe]
+  UDP    127.0.0.1:57068        *:*                                    4772
+  SSDPSRV
+ [svchost.exe]
+  UDP    127.0.0.1:57691        *:*                                    3744
+ [CcmExec.exe]
+  UDP    127.0.0.1:57707        *:*                                    3628
+ [System]
+  UDP    127.0.0.1:58265        *:*                                    1452
+  NlaSvc
+ [svchost.exe]
+  UDP    127.0.0.1:63554        *:*                                    4364
+ [wmiprvse.exe]
+  UDP    127.0.0.1:64094        *:*                                    8388
+ [OUTLOOK.EXE]
+  UDP    127.0.0.1:64542        *:*                                    1276
+  gpsvc
+ [svchost.exe]
+  UDP    127.0.0.1:64998        *:*                                    196
+ [saplogon.exe]
+  UDP    [::]:123               *:*                                    1100
+  W32Time
+ [svchost.exe]
+  UDP    [::]:500               *:*                                    1144
+  IKEEXT
+ [svchost.exe]
+  UDP    [::]:4500              *:*                                    1144
+  IKEEXT
+ [svchost.exe]
+  UDP    [::]:54871             *:*                                    3728
+ [TeamViewer_Service.exe]
+  UDP    [::1]:1900             *:*                                    4772
+  SSDPSRV
+ [svchost.exe]
+  UDP    [::1]:5353             *:*                                    3728
+ [TeamViewer_Service.exe]
+  UDP    [::1]:57066            *:*                                    4772
+  SSDPSRV
+ [svchost.exe]

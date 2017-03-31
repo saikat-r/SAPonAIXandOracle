@@ -1,0 +1,2 @@
+date /T > FILE.TXT
+n2 FILE.TXT

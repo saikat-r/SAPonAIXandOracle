@@ -1,0 +1,25 @@
+<html>
+<title>First PHP</title>
+<body>
+<p>Square Root of 49 will be displayed</p>
+<div>
+<?php 
+echo sqrt(49);
+
+echo '<pre>';
+
+// Outputs all the result of shellcommand "ls", and returns
+// the last output line into $last_line. Stores the return value
+// of the shell command in $retval.
+$last_line = system('C:\wamp\www\basis\AnotherSCRIPT.pl', $retval);
+
+// Printing additional info
+echo '
+</pre>
+<hr />Last line of the output: ' . $last_line . '
+<hr />Return value: ' . $retval;
+
+?>
+</div>
+</body>
+</html>

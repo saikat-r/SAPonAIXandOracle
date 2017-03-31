@@ -1,0 +1,119 @@
+    Test for AGH Connectivity  445.log.txt
+    by Linde SI Basis  445.log.txt
+    TIME: 2017-03-27_ 445  445.log.txt
+  445.log.txt
+    Your PC name is:   WLGGCEOL000E9  445.log.txt
+    And you are:       sdas9  445.log.txt
+  445.log.txt
+  445.log.txt
+   ********************Your PC ipconfig - ALL************************************  445.log.txt 
+
+Error: unrecognized or incomplete command line.
+
+USAGE:
+    ipconfig [/allcompartments] [/? | /all | 
+                                 /renew [adapter] | /release [adapter] |
+                                 /renew6 [adapter] | /release6 [adapter] |
+                                 /flushdns | /displaydns | /registerdns |
+                                 /showclassid adapter |
+                                 /setclassid adapter [classid] |
+                                 /showclassid6 adapter |
+                                 /setclassid6 adapter [classid] ]
+
+where
+    adapter             Connection name 
+                       (wildcard characters * and ? allowed, see examples)
+
+    Options:
+       /?               Display this help message
+       /all             Display full configuration information.
+       /release         Release the IPv4 address for the specified adapter.
+       /release6        Release the IPv6 address for the specified adapter.
+       /renew           Renew the IPv4 address for the specified adapter.
+       /renew6          Renew the IPv6 address for the specified adapter.
+       /flushdns        Purges the DNS Resolver cache.
+       /registerdns     Refreshes all DHCP leases and re-registers DNS names
+       /displaydns      Display the contents of the DNS Resolver Cache.
+       /showclassid     Displays all the dhcp class IDs allowed for adapter.
+       /setclassid      Modifies the dhcp class id.  
+       /showclassid6    Displays all the IPv6 DHCP class IDs allowed for adapter.
+       /setclassid6     Modifies the IPv6 DHCP class id.
+
+
+The default is to display only the IP address, subnet mask and
+default gateway for each adapter bound to TCP/IP.
+
+For Release and Renew, if no adapter name is specified, then the IP address
+leases for all adapters bound to TCP/IP will be released or renewed.
+
+For Setclassid and Setclassid6, if no ClassId is specified, then the ClassId is removed.
+
+Examples:
+    > ipconfig                       ... Show information
+    > ipconfig /all                  ... Show detailed information
+    > ipconfig /renew                ... renew all adapters
+    > ipconfig /renew EL*            ... renew any connection that has its 
+                                         name starting with EL
+    > ipconfig /release *Con*        ... release all matching connections,
+                                         eg. "Local Area Connection 1" or
+                                             "Local Area Connection 2"
+    > ipconfig /allcompartments      ... Show information about all 
+                                         compartments
+    > ipconfig /allcompartments /all ... Show detailed information about all
+                                         compartments
+  445.log.txt
+  445.log.txt
+   ********************Your PC Routing Table**************************************  445.log.txt 
+  445.log.txt
+  445.log.txt
+===========================================================================
+Interface List
+ 18...7e 7a 91 d6 99 17 ......Microsoft Virtual WiFi Miniport Adapter #2
+ 17...7e 7a 91 d6 99 18 ......Microsoft Virtual WiFi Miniport Adapter
+ 16...7c 7a 91 d6 99 17 ......Intel(R) Wireless-N 7260
+ 11...28 d2 44 7b c7 2f ......Intel(R) Ethernet Connection I218-LM
+ 22...0a 00 27 00 00 16 ......VirtualBox Host-Only Ethernet Adapter
+ 23...0a 00 27 00 00 17 ......VirtualBox Host-Only Ethernet Adapter #2
+  1...........................Software Loopback Interface 1
+===========================================================================
+
+IPv4 Route Table
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0      192.168.0.1    192.168.0.103     25
+        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    306
+  127.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+      192.168.0.0    255.255.255.0         On-link     192.168.0.103    281
+    192.168.0.103  255.255.255.255         On-link     192.168.0.103    281
+    192.168.0.255  255.255.255.255         On-link     192.168.0.103    281
+     192.168.56.0    255.255.255.0         On-link      192.168.56.1    266
+     192.168.56.1  255.255.255.255         On-link      192.168.56.1    266
+   192.168.56.255  255.255.255.255         On-link      192.168.56.1    266
+     192.168.99.0    255.255.255.0         On-link      192.168.99.1    266
+     192.168.99.1  255.255.255.255         On-link      192.168.99.1    266
+   192.168.99.255  255.255.255.255         On-link      192.168.99.1    266
+        224.0.0.0        240.0.0.0         On-link         127.0.0.1    306
+        224.0.0.0        240.0.0.0         On-link      192.168.99.1    266
+        224.0.0.0        240.0.0.0         On-link      192.168.56.1    266
+        224.0.0.0        240.0.0.0         On-link     192.168.0.103    281
+  255.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+  255.255.255.255  255.255.255.255         On-link      192.168.99.1    266
+  255.255.255.255  255.255.255.255         On-link      192.168.56.1    266
+  255.255.255.255  255.255.255.255         On-link     192.168.0.103    281
+===========================================================================
+Persistent Routes:
+  Network Address          Netmask  Gateway Address  Metric
+          0.0.0.0          0.0.0.0    172.18.84.129  Default 
+===========================================================================
+
+IPv6 Route Table
+===========================================================================
+Active Routes:
+ If Metric Network Destination      Gateway
+  1    306 ::1/128                  On-link
+  1    306 ff00::/8                 On-link
+===========================================================================
+Persistent Routes:
+  None
