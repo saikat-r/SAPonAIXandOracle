@@ -1,3 +1,4 @@
+ls
 while true
 do
 date
